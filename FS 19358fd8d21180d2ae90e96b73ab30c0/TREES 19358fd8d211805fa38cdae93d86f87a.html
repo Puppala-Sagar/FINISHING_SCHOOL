@@ -681,104 +681,127 @@ blockquote {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="19358fd8-d211-805f-a38c-dae93d86f87a" class="page sans"><header><h1 class="page-title">TREES</h1><p class="page-description"></p></header><div class="page-body"><h2 id="19358fd8-d211-8006-ab03-f3a3b41e3b02" class="">Program1</h2><p id="19358fd8-d211-8038-b292-c3ac2f13cdc0" class="">In a software development company, a team works on various projects over n weeks. <br/>The team completes a certain number of tasks tasks[i] each week and dedicates <br/>hours[i] hours of work. Given an integer k, for every consecutive sequence of <br/>k weeks (tasks[i], tasks[i+1], ..., tasks[i+k-1] and <br/>hours[i], hours[i+1], ..., hours[i+k-1] for all 0 &lt;= i &lt;= n-k), <br/>they evaluate T, the total number of tasks completed during that sequence <br/>of k weeks, and E, the total hours of work during that sequence of k weeks:<br/><br/>a) If T &lt; lower and E &gt;= work_goal, the team performed very poorly and loses 2 points<br/>b) If T &lt; lower and E &lt; work_goal, the team performed poorly and loses 1 point.<br/>c) If T &gt;= upper and E &gt;= work_goal, the team performed well and gains 1 point.<br/>d) If T &gt;= upper and E &lt; work_goal, the team performed exceptionally well and gains 2 points.<br/>e) Otherwise, the team&#x27;s performance is normal and there is no change in points.<br/><br/>Initially, the team starts with zero points. Return the total number of points <br/>the team has after working for n weeks. Note that the total points can be negative.<br/><br/>Example 1<br/>Input:<br/>n = 5<br/>tasks = [10, 20, 30, 40, 50]<br/>hours = [30, 20, 10, 30, 40]<br/>k = 2<br/>lower = 35<br/>upper = 70<br/>work_goal = 45<br/><br/>Output: 1<br/>Explanation:<br/>For [10, 20] and [30, 20]:<br/>T = 30 &lt; lower and E = 50 &gt;= work_goal, the team performed very poorly and loses 2 points.<br/><br/>For [20, 30] and [20, 10]:<br/>T = 50 &gt;= lower and T &lt;= upper and E = 30 &lt; work_goal, no change in points.<br/><br/>For [30, 40] and [10, 30]:<br/>T = 70 = upper and E = 40 &lt; work_goal, the team performed exceptionally well and <br/>gains 2 points.<br/><br/>For [40, 50] and [30, 40]:<br/>T = 90 &gt; upper and E = 70 &gt;= work_goal, the team performed well and gains 1 point.<br/><br/>Therefore, the team gains 1 point (0 - 2 + 2 + 1 = 1).<br/><br/>Sample Input=<br/>4	//n<br/>5 8 10 15<br/>25 30 20 25<br/>3	//k<br/>25	//lower<br/>40	//upper<br/>60	//work_goal<br/>Sample Output=<br/>-2<br/></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="19358fd8-d211-800f-9d8e-de3955cf01f4" class="code"><code class="language-Java">import java.util.*;
+</style></head><body><article id="19358fd8-d211-805f-a38c-dae93d86f87a" class="page sans"><header><h1 class="page-title">TREES</h1><p class="page-description"></p></header><div class="page-body"><h2 id="19358fd8-d211-8006-ab03-f3a3b41e3b02" class="">Program1</h2><p id="19358fd8-d211-8038-b292-c3ac2f13cdc0" class="">You are developing an application for a garden management system where each tree <br/>in the garden is represented as a binary tree structure. The system needs to <br/>allow users to plant new trees in a systematic way, ensuring that each tree is <br/>filled level by level.<br/><br/>A gardener wants to:<br/> - Plant trees based on user input.<br/> - Ensure trees grow in a balanced way by filling nodes level by level.<br/> - Inspect the garden layout by performing an in-order traversal, which helps <br/>   analyze the natural arrangement of trees.<br/><br/>Your task is to implement a program that:<br/>    - Accepts a list of N tree species (as integers).<br/>    - Builds a binary tree using level-order insertion.<br/>    - Displays the in-order traversal of the tree.<br/><br/>Input Format:<br/>-------------<br/>- An integer N representing the number of tree plants.<br/>- A space-separated list of N integers representing tree species.<br/><br/>Output Format:<br/>--------------<br/>A list of integers, in-order traversal of tree.<br/><br/><br/>Sample Input:<br/>-------------<br/>7<br/>1 2 3 4 5 6 7<br/><br/>Sample Output:<br/>--------------<br/>4 2 5 1 6 3 7<br/><br/><br/>Explanation:<br/>------------<br/>The tree looks like this:<br/><br/>        1<br/>       / \<br/>      2   3<br/>     / \  / \<br/>    4   5 6  7<br/>The in order is : 4 2 5 1 6 3 7<br/></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="19358fd8-d211-800f-9d8e-de3955cf01f4" class="code"><code class="language-Java">import java.util.*;
 
-class Solution{
-    static int points=0;
+class Tree{
+    int data;
+    Tree left, right;
+    Tree(int data){
+        this.data=data;
+        left=null;
+        right=null;
+    }
     
-    static void genPoints(int T, int E, int l, int u, int wg)
+}
+public class Solution{
+    
+    static void buildTree(Tree root, int ele)
     {
-        if(T&lt;l &amp;&amp; E&gt;=wg) points-=2;
-        if(T&lt;l &amp;&amp; E&lt;wg) points-=1;
-        if(T&gt;=u &amp;&amp; E&gt;-u) points+=1;
-        if(T&gt;=u &amp;&amp; E&lt;wg) points+=1;
+        if(root==null)
+        {
+            root = new Tree(ele);
+            return;
+        }
+        Queue&lt;Tree&gt; q = new LinkedList&lt;&gt;();
+        q.add(root);
+        while(!q.isEmpty())
+        {
+            root=q.remove();
+            if(root.left==null)
+            {
+                root.left= new Tree(ele);
+                break;
+            }
+            else{
+                q.add(root.left);
+            }
+            if(root.right==null)
+            {
+                root.right= new Tree(ele);
+                break;
+            }
+            else{
+                q.add(root.right);
+            }
+        }
+        
+    }
+    static void inorder(Tree root)
+    {
+        if(root==null) return;
+        inorder(root.left);
+        System.out.print(root.data+&quot; &quot;);
+        inorder(root.right);
+    }
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt();
+        int arr[] = new int[n];
+        for(int i=0;i&lt;n;i++){
+            arr[i]=sc.nextInt();
+        }
+        Tree root = new Tree(arr[0]);
+        for(int i=1;i&lt;n;i++)
+            buildTree(root,arr[i]);
+        inorder(root);
+        
+    }
+}</code></pre><h2 id="19358fd8-d211-804f-838a-f0e84aa721b0" class="">Program2</h2><p id="19358fd8-d211-8020-be59-edc48ab3ee48" class="">Write a program to construct a binary tree from level-order input, while treating -1 <br/>as a placeholder for missing nodes. The program reads input, constructs the tree, <br/>and provides an in-order traversal to verify correctness.<br/><br/>Input Format:<br/>---------------<br/>Space separated integers, level order data (where -1 indiactes null node).<br/><br/>Output Format:<br/>-----------------<br/>Print the in-order data of the tree.<br/><br/><br/>Sample Input:<br/>----------------<br/>1 2 3 -1 -1 4 5<br/><br/>Sample Output:<br/>----------------<br/>2 1 4 3 5<br/><br/>Explanation:<br/>--------------<br/>    1<br/>   / \<br/>  2   3<br/>     / \<br/>    4   5<br/><br/><br/>Sample Input:<br/>----------------<br/>1 2 3 4 5 6 7<br/><br/>Sample Output:<br/>----------------<br/>4 2 5 1 6 3 7<br/><br/>Explanation:<br/>--------------<br/>        1<br/>       / \<br/>      2   3<br/>     / \  / \<br/>    4  5 6  7<br/></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="19358fd8-d211-8060-9426-c6bf29b632fc" class="code"><code class="language-Java">import java.util.*;
+class Tree{
+    int data;
+    Tree left,right;
+    Tree(int data){
+        this.data=data;
+        left=null;
+        right=null;
+    }
+}
+public class Solution{
+    static void buildTree(int[] arr){
+        Tree root = new Tree(arr[0]);
+        Queue&lt;Tree&gt; q = new LinkedList&lt;&gt;();
+        int ind=0;
+        int n=arr.length;
+        q.add(root);
+        while(!q.isEmpty()){
+            Tree node = q.poll();
+            if(ind+1&lt;n){
+                if(arr[ind+1]!=-1)
+                {
+                    node.left=new Tree(arr[ind+1]);
+                    q.add(node.left);
+                }
+            }
+            ind++;
+            if(ind+1&lt;n){
+                if(arr[ind+1]!=-1)
+                {
+                    node.right=new Tree(arr[ind+1]);
+                    q.add(node.right);
+                }
+            }
+            ind++;
+        }
+        
+        inorder(root);
+    }
+    
+    static void inorder(Tree root){
+        if(root==null) return;
+        inorder(root.left);
+        System.out.print(root.data+&quot; &quot;);
+        inorder(root.right);
         
     }
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
-        int n=sc.nextInt();
-        int tasks[] = new int[n];
-        int hours[] = new int[n];
-        for(int i=0;i&lt;n;i++) tasks[i]=sc.nextInt();
-        for(int i=0;i&lt;n;i++) hours[i]=sc.nextInt();
-        int k=sc.nextInt();
-        int l=sc.nextInt();
-        int u=sc.nextInt();
-        int wg=sc.nextInt();
-        
-        // int points=0;
-        int T=0;
-        int E=0;
-        
-        for(int i=0;i&lt;k;i++)
-        {
-            T+=tasks[i];
-            E+=hours[i];
-        }
-        genPoints(T,E,l,u,wg);
-        int left=0;
-        for(int r=k;r&lt;n;r++)
-        {
-            T-=tasks[left];
-            T+=tasks[r];
-            E-=hours[left];
-            E+=hours[r];
-            left++;
-            genPoints(T,E,l,u,wg);
-        }
-        System.out.println(points);
-        
-    }
-}</code></pre><h2 id="19358fd8-d211-804f-838a-f0e84aa721b0" class="">Program2</h2><p id="19358fd8-d211-8020-be59-edc48ab3ee48" class="">You are a treasure hunter exploring an ancient vault filled with <br/>treasure boxes. The vault is represented as an array treasures of <br/>n integers, where each integer corresponds to the value of a treasure. <br/>You have a special key that allows you to scan and select treasures <br/>from a sub-vault (a segment of the array) of size k. Additionally, <br/>you have a magical power factor f and a priority filter x.<br/><br/>The priority-weighted treasure sum of a sub-vault is calculated as follows:<br/>	1. Count the occurrences of each treasure value in the sub-vault.<br/>	2. Assign a priority score to each treasure based on its frequency <br/>	multiplied by the treasure&#x27;s value raised to the power of f <br/>	(i.e., priority_score[treasure] = frequency[treasure] * (value^f)).<br/>	3. Select only the top x treasures based on their priority scores. <br/>	If two treasures have the same priority score, the treasure with <br/>	the higher value is prioritized.<br/>	4. Calculate the total value of the selected treasures.<br/><br/>Your task is to return an integer array priority_sums of length n - k + 1, <br/>where priority_sums[i] represents the priority-weighted treasure sum for <br/>the sub-vault corresponding to treasures[i..i + k - 1].<br/><br/>Input Format:<br/>---------------<br/>Line-1: Four space separated integers, N, K, X, F<br/>Line-2: N space separated integers, boxes[].<br/><br/>Output Format:<br/>-----------------<br/>An integer array, priority_sums[], of length n - k + 1<br/><br/><br/>Sample Input-1:<br/>-----------------<br/>8 5 2 2<br/>1 2 3 1 2 2 3 4<br/><br/>Sample Output-1:<br/>--------------------<br/>[7, 9, 10, 7]<br/><br/>Explanation:<br/>We calculate the priority-weighted treasure sum for each sub-vault:<br/><br/>1. Sub-vault 1: [1, 2, 3, 1, 2]<br/>   - Frequencies: {1: 2, 2: 2, 3: 1}<br/>   - Priority scores:<br/>     - 1 → 2 * (1^2) = 2<br/>     - 2 → 2 * (2^2) = 8<br/>     - 3 → 1 * (3^2) = 9<br/>   - Top 2 treasures by priority: 3 (score 9) and 2 (score 8).<br/>   - Total value: 2 + 3 + 2  = 7.<br/><br/>2. Sub-vault 2: [2, 3, 1, 2, 2]<br/>   - Frequencies: {2: 3, 3: 1, 1: 1}<br/>   - Priority scores:<br/>     - 2 → 3 * (2^2) = 12<br/>     - 3 → 1 * (3^2) = 9<br/>     - 1 → 1 * (1^2) = 1<br/>   - Top 2 treasures by priority: 2 (score 12) and 3 (score 9).<br/>   - Total value: 2 + 2 + 2 + 3 = 9.<br/><br/>3. Sub-vault 3: [3, 1, 2, 2, 3]<br/>   - Frequencies: {3: 2, 2: 2, 1: 1}<br/>   - Priority scores:<br/>     - 3 → 2 * (3^2) = 18<br/>     - 2 → 2 * (2^2) = 8<br/>     - 1 → 1 * (1^2) = 1<br/>   - Top 2 treasures by priority: 3 (score 18) and 2 (score 8).<br/>   - Total value: 3 + 2 + 2 + 3 = 10.<br/><br/>4. Sub-vault 4: [1, 2, 2, 3, 4]<br/>   - Frequencies: {1: 1, 2: 2, 3: 1, 4: 1}<br/>   - Priority scores:<br/>     - 2 → 2 * (2^2) = 8<br/>     - 3 → 1 * (3^2) = 9<br/>     - 4 → 1 * (4^2) = 16<br/>     - 1 → 1 * (1^2) = 1<br/>   - Top 2 treasures by priority: 4 (score 16) and 3 (score 9).<br/>   - Total value: 3 + 4  = 7.<br/><br/>Sample Input-2:<br/>-----------------<br/>6 3 2 1<br/>5 5 6 7 5 6<br/><br/>Sample Output-1:<br/>--------------------<br/>[16, 13, 13, 13]<br/><br/>Constraints:<br/>1. 1 &lt;= n == treasures.length &lt;= 50<br/>2. 1 &lt;= treasures[i] &lt;= 50<br/>3. 1 &lt;= x &lt;= k &lt;= treasures.length<br/>4. 1 &lt;= f &lt;= 10<br/></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="19358fd8-d211-8060-9426-c6bf29b632fc" class="code"><code class="language-Java">import java.util.*;
-
-class Solution{
-    
-    static PriorityQueue&lt;int[]&gt;  getPriorityScores(HashMap&lt;Integer,Integer&gt; map,int f){
-        PriorityQueue&lt;int[]&gt; pq = new PriorityQueue&lt;&gt;((a,b)-&gt;b[1]-a[1]);
-        for(Map.Entry&lt;Integer,Integer&gt; m : map.entrySet())
-        {
-            int ps = m.getValue()*((int)Math.pow(m.getKey(),f));
-            pq.add(new int[]{m.getKey(),ps});
-        }
-        return pq;
-    }
-    
-    static int getFinalValue(PriorityQueue&lt;int[]&gt; pq,HashMap&lt;Integer,Integer&gt; map, int x){
-        int sum=0;
-        for(int i=0;i&lt;x;i++){
-            int[] ps = pq.poll();
-            int occ = map.get(ps[0]);
-            sum+=(occ*ps[0]);
-        }
-        return sum;
-    }
-    public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-        int n=sc.nextInt();
-        int k=sc.nextInt();
-        int x=sc.nextInt();
-        int f=sc.nextInt();
+        String s[]=sc.nextLine().split(&quot; &quot;);
+        int n=s.length;
         int arr[] = new int[n];
-        for(int i=0;i&lt;n;i++) arr[i]=sc.nextInt();
+        for(int i=0;i&lt;n;i++) arr[i]=Integer.parseInt(s[i]+&quot;&quot;);
         
-        HashMap&lt;Integer,Integer&gt; map=new HashMap&lt;&gt;();
-        int ans[] = new int[n-k+1];
-        for(int i=0;i&lt;k;i++){
-            map.put(arr[i],map.getOrDefault(arr[i],0)+1);
-        }
-        PriorityQueue&lt;int[]&gt; pq = getPriorityScores(map,f);
-        int ind=0;
-        ans[ind]=getFinalValue(pq,map,x);;
-        ind++;
-        int left=0;
-        for(int i=k;i&lt;n;i++){
-            map.put(arr[left],map.get(arr[left])-1);
-            left++;
-            map.put(arr[i],map.getOrDefault(arr[i],0)+1);
-            pq = getPriorityScores(map,f);
-            ans[ind++]=getFinalValue(pq,map,x);
-        }
-        
-        for(int i=0;i&lt;ans.length;i++) System.out.print(ans[i]+&quot; &quot;);
+        buildTree(arr);
+
     }
+    
 }</code></pre></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

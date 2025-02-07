@@ -1,0 +1,784 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>TREES</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="19358fd8-d211-805f-a38c-dae93d86f87a" class="page sans"><header><h1 class="page-title">TREES</h1><p class="page-description"></p></header><div class="page-body"><h2 id="19358fd8-d211-8006-ab03-f3a3b41e3b02" class="">Program1</h2><p id="19358fd8-d211-8038-b292-c3ac2f13cdc0" class="">In a software development company, a team works on various projects over n weeks. <br/>The team completes a certain number of tasks tasks[i] each week and dedicates <br/>hours[i] hours of work. Given an integer k, for every consecutive sequence of <br/>k weeks (tasks[i], tasks[i+1], ..., tasks[i+k-1] and <br/>hours[i], hours[i+1], ..., hours[i+k-1] for all 0 &lt;= i &lt;= n-k), <br/>they evaluate T, the total number of tasks completed during that sequence <br/>of k weeks, and E, the total hours of work during that sequence of k weeks:<br/><br/>a) If T &lt; lower and E &gt;= work_goal, the team performed very poorly and loses 2 points<br/>b) If T &lt; lower and E &lt; work_goal, the team performed poorly and loses 1 point.<br/>c) If T &gt;= upper and E &gt;= work_goal, the team performed well and gains 1 point.<br/>d) If T &gt;= upper and E &lt; work_goal, the team performed exceptionally well and gains 2 points.<br/>e) Otherwise, the team&#x27;s performance is normal and there is no change in points.<br/><br/>Initially, the team starts with zero points. Return the total number of points <br/>the team has after working for n weeks. Note that the total points can be negative.<br/><br/>Example 1<br/>Input:<br/>n = 5<br/>tasks = [10, 20, 30, 40, 50]<br/>hours = [30, 20, 10, 30, 40]<br/>k = 2<br/>lower = 35<br/>upper = 70<br/>work_goal = 45<br/><br/>Output: 1<br/>Explanation:<br/>For [10, 20] and [30, 20]:<br/>T = 30 &lt; lower and E = 50 &gt;= work_goal, the team performed very poorly and loses 2 points.<br/><br/>For [20, 30] and [20, 10]:<br/>T = 50 &gt;= lower and T &lt;= upper and E = 30 &lt; work_goal, no change in points.<br/><br/>For [30, 40] and [10, 30]:<br/>T = 70 = upper and E = 40 &lt; work_goal, the team performed exceptionally well and <br/>gains 2 points.<br/><br/>For [40, 50] and [30, 40]:<br/>T = 90 &gt; upper and E = 70 &gt;= work_goal, the team performed well and gains 1 point.<br/><br/>Therefore, the team gains 1 point (0 - 2 + 2 + 1 = 1).<br/><br/>Sample Input=<br/>4	//n<br/>5 8 10 15<br/>25 30 20 25<br/>3	//k<br/>25	//lower<br/>40	//upper<br/>60	//work_goal<br/>Sample Output=<br/>-2<br/></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="19358fd8-d211-800f-9d8e-de3955cf01f4" class="code"><code class="language-Java">import java.util.*;
+
+class Solution{
+    static int points=0;
+    
+    static void genPoints(int T, int E, int l, int u, int wg)
+    {
+        if(T&lt;l &amp;&amp; E&gt;=wg) points-=2;
+        if(T&lt;l &amp;&amp; E&lt;wg) points-=1;
+        if(T&gt;=u &amp;&amp; E&gt;-u) points+=1;
+        if(T&gt;=u &amp;&amp; E&lt;wg) points+=1;
+        
+    }
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int tasks[] = new int[n];
+        int hours[] = new int[n];
+        for(int i=0;i&lt;n;i++) tasks[i]=sc.nextInt();
+        for(int i=0;i&lt;n;i++) hours[i]=sc.nextInt();
+        int k=sc.nextInt();
+        int l=sc.nextInt();
+        int u=sc.nextInt();
+        int wg=sc.nextInt();
+        
+        // int points=0;
+        int T=0;
+        int E=0;
+        
+        for(int i=0;i&lt;k;i++)
+        {
+            T+=tasks[i];
+            E+=hours[i];
+        }
+        genPoints(T,E,l,u,wg);
+        int left=0;
+        for(int r=k;r&lt;n;r++)
+        {
+            T-=tasks[left];
+            T+=tasks[r];
+            E-=hours[left];
+            E+=hours[r];
+            left++;
+            genPoints(T,E,l,u,wg);
+        }
+        System.out.println(points);
+        
+    }
+}</code></pre><h2 id="19358fd8-d211-804f-838a-f0e84aa721b0" class="">Program2</h2><p id="19358fd8-d211-8020-be59-edc48ab3ee48" class="">You are a treasure hunter exploring an ancient vault filled with <br/>treasure boxes. The vault is represented as an array treasures of <br/>n integers, where each integer corresponds to the value of a treasure. <br/>You have a special key that allows you to scan and select treasures <br/>from a sub-vault (a segment of the array) of size k. Additionally, <br/>you have a magical power factor f and a priority filter x.<br/><br/>The priority-weighted treasure sum of a sub-vault is calculated as follows:<br/>	1. Count the occurrences of each treasure value in the sub-vault.<br/>	2. Assign a priority score to each treasure based on its frequency <br/>	multiplied by the treasure&#x27;s value raised to the power of f <br/>	(i.e., priority_score[treasure] = frequency[treasure] * (value^f)).<br/>	3. Select only the top x treasures based on their priority scores. <br/>	If two treasures have the same priority score, the treasure with <br/>	the higher value is prioritized.<br/>	4. Calculate the total value of the selected treasures.<br/><br/>Your task is to return an integer array priority_sums of length n - k + 1, <br/>where priority_sums[i] represents the priority-weighted treasure sum for <br/>the sub-vault corresponding to treasures[i..i + k - 1].<br/><br/>Input Format:<br/>---------------<br/>Line-1: Four space separated integers, N, K, X, F<br/>Line-2: N space separated integers, boxes[].<br/><br/>Output Format:<br/>-----------------<br/>An integer array, priority_sums[], of length n - k + 1<br/><br/><br/>Sample Input-1:<br/>-----------------<br/>8 5 2 2<br/>1 2 3 1 2 2 3 4<br/><br/>Sample Output-1:<br/>--------------------<br/>[7, 9, 10, 7]<br/><br/>Explanation:<br/>We calculate the priority-weighted treasure sum for each sub-vault:<br/><br/>1. Sub-vault 1: [1, 2, 3, 1, 2]<br/>   - Frequencies: {1: 2, 2: 2, 3: 1}<br/>   - Priority scores:<br/>     - 1 → 2 * (1^2) = 2<br/>     - 2 → 2 * (2^2) = 8<br/>     - 3 → 1 * (3^2) = 9<br/>   - Top 2 treasures by priority: 3 (score 9) and 2 (score 8).<br/>   - Total value: 2 + 3 + 2  = 7.<br/><br/>2. Sub-vault 2: [2, 3, 1, 2, 2]<br/>   - Frequencies: {2: 3, 3: 1, 1: 1}<br/>   - Priority scores:<br/>     - 2 → 3 * (2^2) = 12<br/>     - 3 → 1 * (3^2) = 9<br/>     - 1 → 1 * (1^2) = 1<br/>   - Top 2 treasures by priority: 2 (score 12) and 3 (score 9).<br/>   - Total value: 2 + 2 + 2 + 3 = 9.<br/><br/>3. Sub-vault 3: [3, 1, 2, 2, 3]<br/>   - Frequencies: {3: 2, 2: 2, 1: 1}<br/>   - Priority scores:<br/>     - 3 → 2 * (3^2) = 18<br/>     - 2 → 2 * (2^2) = 8<br/>     - 1 → 1 * (1^2) = 1<br/>   - Top 2 treasures by priority: 3 (score 18) and 2 (score 8).<br/>   - Total value: 3 + 2 + 2 + 3 = 10.<br/><br/>4. Sub-vault 4: [1, 2, 2, 3, 4]<br/>   - Frequencies: {1: 1, 2: 2, 3: 1, 4: 1}<br/>   - Priority scores:<br/>     - 2 → 2 * (2^2) = 8<br/>     - 3 → 1 * (3^2) = 9<br/>     - 4 → 1 * (4^2) = 16<br/>     - 1 → 1 * (1^2) = 1<br/>   - Top 2 treasures by priority: 4 (score 16) and 3 (score 9).<br/>   - Total value: 3 + 4  = 7.<br/><br/>Sample Input-2:<br/>-----------------<br/>6 3 2 1<br/>5 5 6 7 5 6<br/><br/>Sample Output-1:<br/>--------------------<br/>[16, 13, 13, 13]<br/><br/>Constraints:<br/>1. 1 &lt;= n == treasures.length &lt;= 50<br/>2. 1 &lt;= treasures[i] &lt;= 50<br/>3. 1 &lt;= x &lt;= k &lt;= treasures.length<br/>4. 1 &lt;= f &lt;= 10<br/></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="19358fd8-d211-8060-9426-c6bf29b632fc" class="code"><code class="language-Java">import java.util.*;
+
+class Solution{
+    
+    static PriorityQueue&lt;int[]&gt;  getPriorityScores(HashMap&lt;Integer,Integer&gt; map,int f){
+        PriorityQueue&lt;int[]&gt; pq = new PriorityQueue&lt;&gt;((a,b)-&gt;b[1]-a[1]);
+        for(Map.Entry&lt;Integer,Integer&gt; m : map.entrySet())
+        {
+            int ps = m.getValue()*((int)Math.pow(m.getKey(),f));
+            pq.add(new int[]{m.getKey(),ps});
+        }
+        return pq;
+    }
+    
+    static int getFinalValue(PriorityQueue&lt;int[]&gt; pq,HashMap&lt;Integer,Integer&gt; map, int x){
+        int sum=0;
+        for(int i=0;i&lt;x;i++){
+            int[] ps = pq.poll();
+            int occ = map.get(ps[0]);
+            sum+=(occ*ps[0]);
+        }
+        return sum;
+    }
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt();
+        int k=sc.nextInt();
+        int x=sc.nextInt();
+        int f=sc.nextInt();
+        int arr[] = new int[n];
+        for(int i=0;i&lt;n;i++) arr[i]=sc.nextInt();
+        
+        HashMap&lt;Integer,Integer&gt; map=new HashMap&lt;&gt;();
+        int ans[] = new int[n-k+1];
+        for(int i=0;i&lt;k;i++){
+            map.put(arr[i],map.getOrDefault(arr[i],0)+1);
+        }
+        PriorityQueue&lt;int[]&gt; pq = getPriorityScores(map,f);
+        int ind=0;
+        ans[ind]=getFinalValue(pq,map,x);;
+        ind++;
+        int left=0;
+        for(int i=k;i&lt;n;i++){
+            map.put(arr[left],map.get(arr[left])-1);
+            left++;
+            map.put(arr[i],map.getOrDefault(arr[i],0)+1);
+            pq = getPriorityScores(map,f);
+            ans[ind++]=getFinalValue(pq,map,x);
+        }
+        
+        for(int i=0;i&lt;ans.length;i++) System.out.print(ans[i]+&quot; &quot;);
+    }
+}</code></pre></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

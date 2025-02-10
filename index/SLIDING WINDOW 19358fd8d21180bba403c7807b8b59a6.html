@@ -551,7 +551,7 @@ blockquote {
 	color: rgba(55, 53, 47, 1);
 }
 .highlight-gray_background {
-	background: rgba(241, 241, 239, 1);
+	background: rgba(248, 248, 247, 1);
 }
 .highlight-brown_background {
 	background: rgba(244, 238, 238, 1);
@@ -569,10 +569,10 @@ blockquote {
 	background: rgba(231, 243, 248, 1);
 }
 .highlight-purple_background {
-	background: rgba(244, 240, 247, 0.8);
+	background: rgba(248, 243, 252, 1);
 }
 .highlight-pink_background {
-	background: rgba(249, 238, 243, 0.8);
+	background: rgba(252, 241, 246, 1);
 }
 .highlight-red_background {
 	background: rgba(253, 235, 236, 1);
@@ -622,7 +622,7 @@ blockquote {
 	fill: inherit;
 }
 .block-color-gray_background {
-	background: rgba(241, 241, 239, 1);
+	background: rgba(248, 248, 247, 1);
 }
 .block-color-brown_background {
 	background: rgba(244, 238, 238, 1);
@@ -640,26 +640,26 @@ blockquote {
 	background: rgba(231, 243, 248, 1);
 }
 .block-color-purple_background {
-	background: rgba(244, 240, 247, 0.8);
+	background: rgba(248, 243, 252, 1);
 }
 .block-color-pink_background {
-	background: rgba(249, 238, 243, 0.8);
+	background: rgba(252, 241, 246, 1);
 }
 .block-color-red_background {
 	background: rgba(253, 235, 236, 1);
 }
-.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
-.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
-.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
-.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
-.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
-.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
-.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
-.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
-.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
-.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
-.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
-.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-transparentGray { background-color: undefined; }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
 .select-value-color-pageGlass { background-color: undefined; }
 .select-value-color-washGlass { background-color: undefined; }
 
@@ -886,5 +886,159 @@ class Solution{
         }
         
         for(int i=0;i&lt;ans.length;i++) System.out.print(ans[i]+&quot; &quot;);
+    }
+}</code></pre><h2 id="19658fd8-d211-807c-a689-e594e12dffb4" class="">Program6</h2><p id="19658fd8-d211-809e-b3f7-cfca184af703" class="">public In a distant galaxy, there exists an ancient space station covered in a vast <br/>array of digital codes. These codes are believed to hold the key to unlocking <br/>powerful alien technology. The interstellar explorers call these codes &quot;prime <br/>sequences.&quot;<br/><br/>The prime-sequence beauty of the digital code is defined as the number of prime <br/>sequences that meet the following conditions:<br/>    -The prime sequence has a length of k.<br/>    -The prime sequence is a divisor of the entire digital code.<br/>    -The prime sequence is a prime number.<br/><br/>Given the digital code on the space station, represented as an integer code, and<br/>the length of the prime sequences k, return the prime-sequence beauty of the code.<br/><br/>Note:<br/>-----<br/>Leading zeros in prime sequences are allowed.<br/>0 is not a divisor of any value.<br/>A prime sequence is a contiguous sequence of characters in the main digital code.<br/><br/>Input Format:<br/>-------------<br/>Line-1: space separated String and integer, code and K<br/><br/>Output Format:<br/>-------------<br/>An integer, the prime-sequence beauty of the code.<br/><br/><br/>Sample Input:<br/>-------------<br/>239246 2 <br/><br/>Sample Output:<br/>--------------<br/>1 <br/><br/>Explanation:<br/>------------<br/>The following are the prime sequences of length k:<br/>    &quot;23&quot; from &quot;239246&quot;: 23 is a divisor of 239246 and is a prime number.<br/>    &quot;39&quot; from &quot;239246&quot;: 39 is not a divisor.<br/>    &quot;92&quot; from &quot;239246&quot;: 92 is not a divisor.<br/>    &quot;24&quot; from &quot;239246&quot;: 24 is is not a divisor 239246.<br/>    &quot;46&quot; from &quot;239246&quot;: 46 is a divisor of 239246 but is not a prime number.<br/>    Therefore, the prime-sequence beauty is 1.<br/><br/>Sample Input:<br/>-------------<br/>24224 1<br/><br/>Sample Output:<br/>--------------<br/>3<br/> {<br/>    <br/>}<br/></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="19658fd8-d211-8005-ac68-f47fcbab9236" class="code"><code class="language-Java">import java.util.*;
+
+class Solution{
+    static int c=0;
+    
+    static boolean validate(StringBuilder s, long n)
+    {
+        String s1=s.toString();
+        if(n%Long.parseLong(s1)!=0) return false;
+        Long num=Long.parseLong(s1);
+        if(num==1 || num==0) return false;
+        for(int i=2;i*i&lt;=num;i++)
+        {
+            if(num%i==0) return false;
+        }
+        return true;
+    }
+    static void primeSeq(int[] arr, int k, long n)
+    {
+        StringBuilder s=new StringBuilder();
+        for(int i=0;i&lt;k;i++)
+        {
+            s.append(arr[i]);
+        }
+        if(validate(s,n))
+        {
+            c++;
+        }
+        for(int i=k;i&lt;arr.length;i++)
+        {
+            s.deleteCharAt(0);
+            s.append(arr[i]);
+            if(validate(s,n)) c++;
+        }
+    }
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        long n=sc.nextInt();
+        int k=sc.nextInt();
+        String s=n+&quot;&quot;;
+        int arr[] = new int[s.length()];
+        for(int i=0;i&lt;s.length();i++){
+            arr[i]=Integer.parseInt(s.charAt(i)+&quot;&quot;);
+        }
+        primeSeq(arr,k,n);
+        System.out.println(c);
+    }
+}
+</code></pre><h2 id="19658fd8-d211-80b5-b5ca-e5c35c2d32ec" class="">Program7</h2><p id="19658fd8-d211-8036-b557-cc8b11a2311e" class="">In a film festival, there is a lineup of movies, each with a rating. The festival <br/>organizer wants to find the maximum total rating of &#x27;k&#x27; sequence of movies while <br/>following these rules:<br/>    1. The sequence must be exactly k movies long.<br/>    2. Each movie in the sequence must have a distinct rating.<br/>    3. None of the movies in the sequence should have a restricted rating, as <br/>       these are reserved for special screenings.<br/><br/>Given an array movieRatings representing the sequence of movie ratings, an integer k <br/>representing the length of the sequence, and a set restrictedRatings (of size m) of <br/>special ratings, find the maximum total rating of any valid sequence. <br/>If no valid sequence exists, return -1.<br/><br/>Input Format:<br/>-------------<br/>Line-1: 3 space separated integers, n, k, m<br/>Line-2: n space separated integers, movieRatings[].<br/>Line-3: m space separated integers, restrictedRatings[].<br/><br/>Output Format:<br/>-------------<br/>An integer, the maximum total rating of any valid sequence<br/><br/><br/>Sample Input-1:<br/>---------------<br/>7 3 2<br/>1 5 4 2 9 9 9<br/>2 9<br/><br/>Sample Output-1:<br/>----------------<br/>10<br/><br/>Explanation: <br/>------------<br/>The sequences of movie ratings with length 3 are:<br/>- [1, 5, 4] which meets the requirements and has a total rating of 10.<br/>- [5, 4, 2] which does not meet the requirements because 2 is in the <br/>restricted set.<br/>- [4, 2, 9] which does not meet the requirements because 2 and 9 are in <br/>the restricted set.<br/>- [2, 9, 9] which does not meet the requirements because 2 and 9 are in <br/>the restricted set and 9 is repeated.<br/>- [9, 9, 9] which does not meet the requirements because 9 is in <br/>the restricted set and repeated.<br/><br/>We return 10 because it is the maximum total rating of all the sequences <br/>that meet the conditions.<br/><br/><br/>Sample Input-2:<br/>---------------<br/>3 3 1<br/>4 4 4<br/>4<br/><br/>Sample Output-2:<br/>----------------<br/>-1<br/><br/>Explanation: The sequences of movie ratings with length 3 are:<br/>[4, 4, 4] which does not meet the requirements because 4 is repeated and in the restricted set.<br/>We return -1 because no sequences meet the conditions.<br/><br/>Constraints:<br/>------------<br/>0 &lt;= m &lt;= n &lt;=1000<br/>k &lt;= n<br/>0 ≤ restrictedRatings.length ≤ 1000<br/></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="19658fd8-d211-8037-81a6-cdf46a3ba24e" class="code"><code class="language-Java">import java.util.*;
+
+class Solution{
+    
+    static int c=0;
+    static boolean f=false;
+    static boolean valid(ArrayList&lt;Integer&gt; temp,ArrayList&lt;Integer&gt; res)
+    {
+        // System.out.println(temp);
+        HashSet&lt;Integer&gt; set = new HashSet&lt;&gt;();
+        for(int i=0;i&lt;temp.size();i++)
+        {
+            if(set.contains(temp.get(i)) || res.contains(temp.get(i)))
+            {
+                return false;
+            }
+            else{
+                set.add(temp.get(i));
+            }
+        }
+        return true;
+    }
+    static void check(int[] arr,ArrayList&lt;Integer&gt; res,int k)
+    {
+        ArrayList&lt;Integer&gt; temp=new ArrayList&lt;&gt;();
+        // boolean valid=true;
+        for(int i=0;i&lt;k;i++)
+        {
+            temp.add(arr[i]);
+        }
+        if(valid(temp,res))
+        {
+            int sum=0;
+            for(int i=0;i&lt;temp.size();i++) sum+=temp.get(i);
+            c=Math.max(c,sum);
+            f=true;
+        }
+        
+        for(int i=k;i&lt;arr.length;i++){
+            temp.remove(0);
+            temp.add(arr[i]);
+            if(valid(temp,res))
+            {
+                int sum=0;
+                for(int j=0;j&lt;temp.size();j++) sum+=temp.get(j);
+                c=Math.max(c,sum);
+                f=true;
+            }
+        }
+        
+        
+    }
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt();
+        int k=sc.nextInt();
+        int m=sc.nextInt();
+        int ratings[] = new int[n];
+        for(int i=0;i&lt;n;i++) ratings[i]=sc.nextInt();
+        
+        ArrayList&lt;Integer&gt; res = new ArrayList&lt;&gt;();
+        for(int i=0;i&lt;m;i++) res.add(sc.nextInt());
+        
+        check(ratings,res,k);
+        
+        System.out.println(f?c:-1);
+        
+        
+        
+    }
+}</code></pre><h2 id="19658fd8-d211-800a-a2fe-e48df07cc063" class="">Program8</h2><p id="19658fd8-d211-80a7-ba4c-f7b36e8bdf1d" class="">You are given an integer array nums and two integers l and r. Your task is to <br/>analyze the volatility of a sequence of values. The volatility of a sequence is <br/>defined as the difference between the maximum and minimum values in that sequence.<br/><br/>You need to determine the sequence with the highest volatility among all <br/>sequences of length between l and r (inclusive).<br/><br/>Return the highest volatility. If no such sequence exists, return -1.<br/><br/>Input Format:<br/>-------------<br/>Line-1: 3 space separated integers, n, l, r<br/>Line-2: n space separated integers, nums[].<br/><br/>Output Format:<br/>-------------<br/>An integer, the highest volatility.<br/><br/><br/>Sample Input-1:<br/>---------------<br/>5 2 3<br/>8 3 1 6 2<br/><br/>Sample Output-1:<br/>----------------<br/>7<br/><br/>Explanation:<br/>------------<br/>The possible sequences of length between l = 2 and r = 3 are:<br/><br/>[8, 3] with a volatility of 8−3=5<br/>[3, 1] with a volatility of 3−1=2<br/>[1, 6] with a volatility of 6−1=5<br/>[8, 3, 1] with a volatility of 8−1=7<br/>The sequence [8, 3, 1] has the highest volatility of 7.<br/><br/>Sample Input-2:<br/>---------------<br/>4 2 4<br/>5 5 5 5<br/><br/>Sample Output-2:<br/>----------------<br/>0<br/><br/>Explanation:<br/>------------<br/>All possible sequences have no volatility as the maximum and minimum values <br/>are the same, resulting in a difference of 0.<br/></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="19658fd8-d211-8048-b821-edac590f85ce" class="code"><code class="language-Java">import java.util.*;
+
+class Solution{
+    
+    static int c=-1;
+    static void find(int[] arr, int k)
+    {
+        int max=arr[0];
+        int min=arr[0];
+        TreeSet&lt;Integer&gt; temp=new TreeSet&lt;&gt;();
+        for(int i=0;i&lt;k;i++)
+        {
+            temp.add(arr[i]);
+        }
+        c=Math.max(c,temp.last()-temp.first());
+        for(int i=k;i&lt;arr.length;i++)
+        {
+            temp.remove(arr[i-k]);
+            temp.add(arr[i]);
+            c=Math.max(c,temp.last()-temp.first());
+        }
+    }
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int n= sc.nextInt();
+        int l= sc.nextInt();
+        int r= sc.nextInt();
+        int arr[] = new int[n];
+        
+        for(int i=0;i&lt;n;i++) arr[i]=sc.nextInt();
+       
+        find(arr,r);
+ 
+        System.out.println(c);
+        
     }
 }</code></pre></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

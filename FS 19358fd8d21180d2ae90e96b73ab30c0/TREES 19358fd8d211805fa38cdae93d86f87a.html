@@ -804,4 +804,194 @@ public class Solution{
 
     }
     
-}</code></pre></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+}</code></pre><h2 id="19858fd8-d211-805c-b185-f1abb1badd78" class="">Program3</h2><p id="19858fd8-d211-8018-a851-e52054c9324f" class="">Given the in-order and post-order traversals of a binary tree, construct<br/>the original binary tree. For the given Q number of queries,<br/>each query consists of a lower level and an upper level.<br/>The output should list the nodes in the order they appear in a level-wise.<br/></p><p id="19858fd8-d211-8042-aac1-e85e7cb8732f" class="">Input Format:</p><p id="19858fd8-d211-80aa-8742-e60b3a59e25b" class="">An integer N representing the number nodes.<br/>A space-separated list of N integers representing the similar to in-order traversal.<br/>A space-separated list of N integers representing the similar to post-order traversal.<br/>An integer Q representing the number of queries.<br/>Q pairs of integers, each representing a query in the form:<br/>Lower level (L)<br/>Upper level (U)<br/></p><p id="19858fd8-d211-8060-a2fa-c2dd1d6911de" class="">Output Format:<br/>For each query, print the nodes in order within the given depth range<br/></p><p id="19858fd8-d211-8026-969b-e3982abcf3e0" class="">Example<br/>Input:<br/>7<br/>4 2 5 1 6 3 7<br/>4 5 2 6 7 3 1<br/>2<br/>1 2<br/>2 3<br/>Output:<br/>[1, 2, 3]<br/>[2, 3, 4, 5, 6, 7]<br/></p><p id="19858fd8-d211-801b-aae6-f4697ce334bb" class="">Explanation:<br/>1<br/>/ \<br/>2   3<br/>/ \  / \<br/>4   5 6  7<br/>Query 1 (Levels 1 to 2): 1 2 3<br/>Query 2 (Levels 2 to 3): 2 3 4 5 6 7<br/></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="19858fd8-d211-80d2-bea5-c9a3f700c633" class="code"><code class="language-Java">import java.util.*;
+
+class Tree{
+    int data;
+    Tree left;
+    Tree right;
+    Tree(int data){
+        this.data=data;
+        left=null;
+        right=null;
+    }
+}
+
+
+class Solution{
+
+    static Tree BuildTree(int in[], int[] po, int start, int end,HashMap&lt;Integer,Integer&gt; map,Stack&lt;Integer&gt; s)
+    {
+        
+        if(start&gt;end) return null;
+        
+        int curr = s.peek();
+        s.pop();
+        Tree root = new Tree(curr);
+        if(start==end) return root;
+        int pos = map.get(curr);
+        root.right = BuildTree(in,po,pos+1,end,map,s);
+        root.left = BuildTree(in,po,start,pos-1,map,s);
+        
+        return root;
+    }
+    static List&lt;List&lt;Integer&gt;&gt; levelOrder(Tree root){
+        List&lt;List&lt;Integer&gt;&gt; levels = new ArrayList&lt;&gt;();
+        if (root == null) return levels;
+        Queue&lt;Tree&gt; q = new LinkedList&lt;&gt;();
+        q.offer(root);
+        while (!q.isEmpty()) {
+            int size = q.size();
+            List&lt;Integer&gt; level = new ArrayList&lt;&gt;();
+            for (int i = 0; i &lt; size; i++) {
+                Tree node = q.poll();
+                level.add(node.data);
+                if (node.left != null) q.offer(node.left);
+                if (node.right != null) q.offer(node.right);
+            }
+            levels.add(level);
+        }
+        return levels;
+    }
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt();
+        int in[] = new int[n];
+        int po[] = new int[n];
+        for(int i=0;i&lt;n;i++) in[i]=sc.nextInt();
+        for(int i=0;i&lt;n;i++) po[i]=sc.nextInt();
+        
+        HashMap&lt;Integer,Integer&gt; map = new HashMap&lt;&gt;();
+        Stack&lt;Integer&gt; s = new Stack&lt;&gt;();
+        for(int i=0;i&lt;n;i++)
+        {
+            map.put(in[i],i);
+            s.add(po[i]);
+        }
+
+        Tree root = BuildTree(in,po,0,n-1,map,s);
+        
+        // inorder(root);
+        
+        int q=sc.nextInt();
+        
+        List&lt;List&lt;Integer&gt;&gt; ans = new ArrayList&lt;&gt;();
+        ans = levelOrder(root);
+        
+        List&lt;List&lt;Integer&gt;&gt; finans = new ArrayList&lt;&gt;();
+        
+        for(int i=0;i&lt;q;i++){
+            int l=sc.nextInt();
+            int r=sc.nextInt();
+            
+            List&lt;Integer&gt; res = new ArrayList&lt;&gt;();
+            for(int j=l;j&lt;=r;j++)
+            {
+              res.addAll(ans.get(j-1));  
+            }
+            
+            finans.add(res);
+        }
+        
+        for(int i=0;i&lt;q;i++){
+            System.out.println(finans.get(i));
+        }
+        
+    }
+    
+}</code></pre><h2 id="19858fd8-d211-80c1-b87c-cbfaa7899429" class="">Program4</h2><p id="19858fd8-d211-803b-8f96-e747a4d2c5cc" class="">Construct the binary tree from the given In-order and Pre-order.<br/>Find Nodes Between Two Levels in Spiral Order.<br/>The spiral order is as follows:<br/>-&gt; Odd levels → Left to Right.<br/>-&gt; Even levels → Right to Left.<br/></p><h2 id="19858fd8-d211-80cb-bb7f-c6b31ce9fe07" class="">Input Format:</h2><p id="19858fd8-d211-8085-84e5-c2777f764b18" class="">An integer N representing the number of nodes.<br/>A space-separated list of N integers representing the in-order traversal.<br/>A space-separated list of N integers representing the pre-order traversal.<br/>Two integers:<br/>Lower Level (L)<br/>Upper Level (U)<br/></p><p id="19858fd8-d211-80d4-9e66-faca04c23b7f" class="">Output Format:<br/>Print all nodes within the specified levels, but in spiral order.<br/></p><p id="19858fd8-d211-801f-97bf-d133a8dc7590" class="">Example:<br/>Input:<br/>7<br/>4 2 5 1 6 3 7<br/>1 2 4 5 3 6 7<br/>2 3<br/></p><p id="19858fd8-d211-8098-9fac-e94ff5f1b71e" class="">Output:<br/>3 2 4 5 6 7<br/></p><p id="19858fd8-d211-8042-810c-ef3bf4828425" class="">Explanation:<br/>Binary tree structure:<br/>1<br/>/ \<br/>2   3<br/>/ \  / \<br/>4   5 6  7<br/></p><p id="19858fd8-d211-800a-8341-c6ae8fdbfdaa" class="">Levels 2 to 3 in Regular Order:<br/>Level 2 → 2 3<br/>Level 3 → 4 5 6 7<br/></p><p id="19858fd8-d211-80f4-82b4-dda52573ea71" class="">Spiral Order:<br/>Level 2 (Even) → 3 2 (Right to Left)<br/>Level 3 (Odd) → 4 5 6 7 (Left to Right)<br/></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="19858fd8-d211-8087-aea0-c19d65899ba7" class="code"><code class="language-Java">import java.util.*;
+
+class Tree{
+    int data;
+    Tree left;
+    Tree right;
+    Tree(int data){
+        this.data=data;
+        left=null;
+        right=null;
+    }
+}
+
+
+class Solution{
+
+    static Tree BuildTree(int in[], int[] pre, int start, int end,HashMap&lt;Integer,Integer&gt; map,Queue&lt;Integer&gt; q)
+    {
+        
+        if(start&gt;end) return null;
+        
+        int curr = q.poll();
+        Tree root = new Tree(curr);
+        if(start==end) return root;
+        int pos = map.get(curr);
+        root.left = BuildTree(in,pre,start,pos-1,map,q);
+        root.right = BuildTree(in,pre,pos+1,end,map,q);
+        
+        return root;
+    }
+    static List&lt;List&lt;Integer&gt;&gt; levelOrder(Tree root){
+        List&lt;List&lt;Integer&gt;&gt; levels = new ArrayList&lt;&gt;();
+        if (root == null) return levels;
+        Queue&lt;Tree&gt; q = new LinkedList&lt;&gt;();
+        q.offer(root);
+        while (!q.isEmpty()) {
+            int size = q.size();
+            List&lt;Integer&gt; level = new ArrayList&lt;&gt;();
+            for (int i = 0; i &lt; size; i++) {
+                Tree node = q.poll();
+                level.add(node.data);
+                if (node.left != null) q.offer(node.left);
+                if (node.right != null) q.offer(node.right);
+            }
+            levels.add(level);
+        }
+        return levels;
+    }
+     
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt();
+        int in[] = new int[n];
+        int pre[] = new int[n];
+        for(int i=0;i&lt;n;i++) in[i]=sc.nextInt();
+        for(int i=0;i&lt;n;i++) pre[i]=sc.nextInt();
+        
+        HashMap&lt;Integer,Integer&gt; map = new HashMap&lt;&gt;();
+        Queue&lt;Integer&gt; q = new LinkedList&lt;&gt;();
+        for(int i=0;i&lt;n;i++)
+        {
+            map.put(in[i],i);
+            q.add(pre[i]);
+        }
+
+        Tree root = BuildTree(in,pre,0,n-1,map,q);
+        
+        
+        List&lt;List&lt;Integer&gt;&gt; ans = new ArrayList&lt;&gt;();
+        ans = levelOrder(root);
+        
+        int l=sc.nextInt();
+        int r=sc.nextInt();
+        for(int i=l;i&lt;=r;i++)
+        {
+          if(i%2==0)
+          {
+            for(int j=ans.get(i-1).size()-1;j&gt;=0;j--)
+            {
+              System.out.print(ans.get(i-1).get(j)+&quot; &quot;);  
+            }  
+          }
+          else
+          {
+            for(int j=0;j&lt;ans.get(i-1).size();j++)
+            {
+              System.out.print(ans.get(i-1).get(j)+&quot; &quot;);  
+            }
+          }  
+        }  
+        
+    }
+    
+}
+
+</code></pre></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

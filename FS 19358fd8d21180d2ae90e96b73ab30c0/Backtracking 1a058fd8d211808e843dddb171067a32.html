@@ -1,4 +1,4 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>FS</title><style>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Backtracking</title><style>
 /* cspell:disable-file */
 /* webkit printing magic: print all background colors */
 html {
@@ -681,5 +681,87 @@ blockquote {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="19358fd8-d211-80d2-ae90-e96b73ab30c0" class="page sans"><header><h1 class="page-title">FS</h1><p class="page-description"></p></header><div class="page-body"><p id="19358fd8-d211-815b-9b80-f7c1e6909749" class="">
-</p><figure id="19358fd8-d211-80bb-a403-c7807b8b59a6" class="link-to-page"><a href="FS%2019358fd8d21180d2ae90e96b73ab30c0/SLIDING%20WINDOW%2019358fd8d21180bba403c7807b8b59a6.html">SLIDING WINDOW</a></figure><figure id="19358fd8-d211-805f-a38c-dae93d86f87a" class="link-to-page"><a href="FS%2019358fd8d21180d2ae90e96b73ab30c0/TREES%2019358fd8d211805fa38cdae93d86f87a.html">TREES</a></figure><figure id="1a058fd8-d211-808e-843d-ddb171067a32" class="link-to-page"><a href="FS%2019358fd8d21180d2ae90e96b73ab30c0/Backtracking%201a058fd8d211808e843dddb171067a32.html">Backtracking</a></figure><figure id="1a058fd8-d211-807e-b3e6-ccdcaecb19e5" class="link-to-page"><a href="FS%2019358fd8d21180d2ae90e96b73ab30c0/Networks%201a058fd8d211807eb3e6ccdcaecb19e5.html">Networks</a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style></head><body><article id="1a058fd8-d211-808e-843d-ddb171067a32" class="page sans"><header><h1 class="page-title">Backtracking</h1><p class="page-description"></p></header><div class="page-body"><h2 id="1a058fd8-d211-807b-9db1-c53ec9174fdc" class="">Program1</h2><p id="1a058fd8-d211-8024-9fe2-e6ef4a25a77d" class="">You are a bird living in a vast forest. Every day, you fly across different locations<br/>to collect food and store it in various nests. However, you must return to your home<br/>nest before sunset to rest safely.<br/></p><p id="1a058fd8-d211-80e5-bc8f-e7e7ad27e1ee" class="">Your objective is to collect as much food as possible within a given time limit<br/>while following the forest rules:<br/></p><ol type="1" id="1a058fd8-d211-8009-8627-e3903283f86f" class="numbered-list" start="1"><li>Each food location contains only one unit of food.</li></ol><ol type="1" id="1a058fd8-d211-800f-a4a3-cf4c8220d9f3" class="numbered-list" start="2"><li>The bird can carry only one unit of food at a time.</li></ol><ol type="1" id="1a058fd8-d211-80f8-bfe7-c013b7e4cc04" class="numbered-list" start="3"><li>The bird must deposit food into a nest before collecting more.</li></ol><ol type="1" id="1a058fd8-d211-806d-a509-f2baa130a8b8" class="numbered-list" start="4"><li>Distance Calculation: The time taken to fly between two locations using<br/>the Euclidean distance formula: d = sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}<br/></li></ol><ol type="1" id="1a058fd8-d211-8070-bd72-e1eb374927ce" class="numbered-list" start="5"><li>The total time spent is the sum of:<ul id="1a058fd8-d211-801e-8354-cbe3b695b744" class="bulleted-list"><li style="list-style-type:disc">Travel time between locations.</li></ul><ul id="1a058fd8-d211-804d-a6e1-f85c409c6dfc" class="bulleted-list"><li style="list-style-type:disc">Fixed time to deposit food in a nest (each nest has a different deposit<br/>time).<br/></li></ul></li></ol><ol type="1" id="1a058fd8-d211-8043-9805-e0d272c05445" class="numbered-list" start="6"><li>The bird must return to the home nest before the total time limit.</li></ol><p id="1a058fd8-d211-80a3-bb38-f76acd6a38af" class="">Your goal is to determine the maximum number of food units that the bird<br/>can collect and store in different nests before sunset.<br/></p><h2 id="1a058fd8-d211-80fd-bcd5-d08e74bf205d" class="">Input Format:</h2><p id="1a058fd8-d211-802e-92a3-ebb6d4a8a6b4" class="">An integer representing the number of food locations.</p><p id="1a058fd8-d211-802f-8e5c-f8a027505092" class="">An integer representing the number of nests.</p><p id="1a058fd8-d211-80f4-bb3e-dd91646acf0e" class="">A 2D array containing the coordinates of each food location as pairs (x, y)<br/>A 2D array containing the coordinates of each nest as pairs (x, y).<br/></p><p id="1a058fd8-d211-80c0-a035-fb75d187661c" class="">A 1D array containing the starting coordinates (home nest) (x, y).</p><p id="1a058fd8-d211-8094-8770-f2e3865f6a18" class="">A floating-point number representing the total time available (before sunset).</p><h2 id="1a058fd8-d211-8012-ba7b-f1798a738861" class="">Output Format:</h2><p id="1a058fd8-d211-80ac-8d9e-e8d2d7addec1" class="">The function must return an integer, representing the maximum number of<br/>food units that can be collected and stored in nests within the given time.<br/></p><h2 id="1a058fd8-d211-80b1-9b07-dcdbd9febbe0" class="">Sample Input:</h2><p id="1a058fd8-d211-8047-9513-c1acea72e636" class="">2<br/>2<br/>3 3<br/>4 6<br/>5 5<br/>6 1<br/>1 4<br/>13<br/></p><h2 id="1a058fd8-d211-80b6-9333-d048f45c0fc6" class="">Sample Output:</h2><p id="1a058fd8-d211-80d5-aa3c-ec4c921931cd" class="">2</p><h2 id="1a058fd8-d211-8053-9ab0-f809c732d0ec" class="">Explanation:</h2><p id="1a058fd8-d211-807e-99c7-c7d1be010599" class="">The bird starts at (1,4).<br/>Moves to food location (3,3) (distance = sqrt(5)).<br/>Deposits food at a nest (5,5) (distance = sqrt(8)).<br/>Moves to food location (4,6) (distance = sqrt(2))<br/>and collects another unit of food.<br/>Deposits it at a nest (5,5) (distance = sqrt(2)).<br/>Returns to the starting point (1,4) (distance = sqrt(17)).<br/>Total distance is: sqrt(5) + sqrt(8) + sqrt(2) + sqrt(2)+ sqrt(17) = 12.0160278526<br/>Since the total distance is within the allowed time (13),<br/>the maximum food units collected are 2.<br/></p><h2 id="1a058fd8-d211-809d-acb9-f92c4b0b283b" class="">Sample Input:</h2><p id="1a058fd8-d211-807a-b773-d218ac13c739" class="">4<br/>1<br/>3 3<br/>5 7<br/>7 8<br/>8 4<br/>7 7<br/>1 5<br/>22<br/></p><h2 id="1a058fd8-d211-80e0-a1f9-f5137cf62cb9" class="">Sample Output:</h2><p id="1a058fd8-d211-8035-9156-da968fb6aa1e" class="">3</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a058fd8-d211-80f6-b029-f4dd08efa90c" class="code"><code class="language-Java">import java.util.*;
+
+class Solution{
+    
+    static int ans=0;
+    static int c=0;
+    static double calc(int x1,int y1, int x2,int y2)
+    {
+        double a=Math.pow(x2-x1,2);
+        double b=Math.pow(y2-y1,2);
+        
+        return Math.pow(a+b,0.5);
+    }
+    static void solve(int nf, int nn, int[][] foodl, int[][] nestl,int x,int y, double target, double dist, int cnt,boolean take,boolean deposit,boolean[] vis,int s1, int s2,boolean reach)
+    {
+        
+        if(dist&gt;target) return;
+        if(reach==true)
+        {
+            ans=Math.max(ans,cnt);
+            return;
+        }
+        
+        if(deposit){
+            for(int i=0;i&lt;nf;i++)
+            {
+                if(!vis[i])
+                {
+                    double currdist = calc(x,y,foodl[i][0],foodl[i][1]);
+                    vis[i]=true;
+                    solve(nf,nn,foodl,nestl,foodl[i][0],foodl[i][1],target,dist+currdist,cnt,true,false,vis,s1,s2,false);
+                    vis[i]=false;
+                    
+                }
+                
+            }
+        }
+        
+        else
+        {
+            for(int i=0;i&lt;nn;i++)
+            {
+                double currdist = calc(x,y,nestl[i][0],nestl[i][1]);
+                
+                solve(nf,nn,foodl,nestl,nestl[i][0],nestl[i][1],target,dist+currdist,cnt+1,false,true,vis,s1,s2,false);
+                
+                double nedis = calc(nestl[i][0],nestl[i][1],s1,s2);
+                
+                solve(nf,nn,foodl,nestl,nestl[i][0],nestl[i][1],target,dist+currdist+nedis,cnt+1,false,true,vis,s1,s2,true);
+                
+                
+            }
+        }
+        
+        
+        
+    }
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int nf=sc.nextInt();
+        int nn=sc.nextInt();
+        
+        int foodl[][] =  new int[nf][2];
+        int nestl[][] =  new int[nn][2];
+        
+        for(int i=0;i&lt;nf;i++)
+        {
+            foodl[i][0]=sc.nextInt();
+            foodl[i][1]=sc.nextInt();
+        }
+        for(int i=0;i&lt;nn;i++)
+        {
+            nestl[i][0]=sc.nextInt();
+            nestl[i][1]=sc.nextInt();
+        }
+        int start[] =new int[2];
+        start[0]=sc.nextInt();
+        start[1]=sc.nextInt();
+        double target = sc.nextDouble();
+        
+        solve(nf,nn,foodl,nestl,start[0],start[1],target,0,0,false,true, new boolean[nf],start[0],start[1],false);
+        System.out.println(ans);
+    }
+}</code></pre></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

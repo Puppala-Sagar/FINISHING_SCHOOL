@@ -1074,7 +1074,7 @@ class Solution{
         System.out.println(ans);
         
     }
-}</code></pre><h2 id="19a58fd8-d211-80b8-92ed-d11372bcc2a7" class="">Program6</h2><p id="19a58fd8-d211-8060-98d1-d34fa072c74f" class="">Balbir Singh is working with Binary Trees.<br/>The elements of the tree are given in level-order format.<br/></p><p id="19a58fd8-d211-8037-8506-caf8e81bf588" class="">Balbir is observing the tree from the right side, meaning he<br/>can only see the rightmost nodes (one node per level).<br/></p><p id="19a58fd8-d211-80f1-bec4-c8f7a06d1fd3" class="">You are given the root of a binary tree. Your task is to determine<br/>the nodes visible from the right side and return them in top-to-bottom order.<br/></p><h2 id="19a58fd8-d211-801c-9416-c1bca9e77b1d" class="">Input Format:</h2><p id="19a58fd8-d211-800d-9f3b-dae880e1c347" class="">Space separated integers, elements of the tree.</p><h2 id="19a58fd8-d211-8079-8518-c7730fcabac4" class="">Output Format:</h2><p id="19a58fd8-d211-8071-a0f5-dd08c87768ac" class="">A list of integers representing the node values visible from the right side</p><h2 id="19a58fd8-d211-80f9-a8bb-daadb59e4791" class="">Sample Input-1:</h2><p id="19a58fd8-d211-80ca-898b-ebb5e9bdb5f9" class="">1 2 3 5 -1 -1 5</p><h2 id="19a58fd8-d211-80b5-8132-eebc4f05a892" class="">Sample Output-1:</h2><p id="19a58fd8-d211-801e-9235-dcc64c5a815c" class="">[1, 3, 5]</p><h2 id="19a58fd8-d211-8063-b3cf-e5fce1d534bb" class="">Sample Input-2:</h2><p id="19a58fd8-d211-801d-a036-c44bcab44f60" class="">3 2 4 3 2</p><h2 id="19a58fd8-d211-8068-9c5c-fd494d2e0912" class="">Sample Output-2:</h2><p id="19a58fd8-d211-8075-943c-c9312c4261f6" class="">[3, 4, 2]</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="19a58fd8-d211-806f-b7d7-f91410188a17" class="code"><code class="language-Java">import java.util.*;
+}</code></pre><h2 id="19a58fd8-d211-80b8-92ed-d11372bcc2a7" class="">Program6 (Right view)</h2><p id="19a58fd8-d211-8060-98d1-d34fa072c74f" class="">Balbir Singh is working with Binary Trees.<br/>The elements of the tree are given in level-order format.<br/></p><p id="19a58fd8-d211-8037-8506-caf8e81bf588" class="">Balbir is observing the tree from the right side, meaning he<br/>can only see the rightmost nodes (one node per level).<br/></p><p id="19a58fd8-d211-80f1-bec4-c8f7a06d1fd3" class="">You are given the root of a binary tree. Your task is to determine<br/>the nodes visible from the right side and return them in top-to-bottom order.<br/></p><h2 id="19a58fd8-d211-801c-9416-c1bca9e77b1d" class="">Input Format:</h2><p id="19a58fd8-d211-800d-9f3b-dae880e1c347" class="">Space separated integers, elements of the tree.</p><h2 id="19a58fd8-d211-8079-8518-c7730fcabac4" class="">Output Format:</h2><p id="19a58fd8-d211-8071-a0f5-dd08c87768ac" class="">A list of integers representing the node values visible from the right side</p><h2 id="19a58fd8-d211-80f9-a8bb-daadb59e4791" class="">Sample Input-1:</h2><p id="19a58fd8-d211-80ca-898b-ebb5e9bdb5f9" class="">1 2 3 5 -1 -1 5</p><h2 id="19a58fd8-d211-80b5-8132-eebc4f05a892" class="">Sample Output-1:</h2><p id="19a58fd8-d211-801e-9235-dcc64c5a815c" class="">[1, 3, 5]</p><h2 id="19a58fd8-d211-8063-b3cf-e5fce1d534bb" class="">Sample Input-2:</h2><p id="19a58fd8-d211-801d-a036-c44bcab44f60" class="">3 2 4 3 2</p><h2 id="19a58fd8-d211-8068-9c5c-fd494d2e0912" class="">Sample Output-2:</h2><p id="19a58fd8-d211-8075-943c-c9312c4261f6" class="">[3, 4, 2]</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="19a58fd8-d211-806f-b7d7-f91410188a17" class="code"><code class="language-Java">import java.util.*;
 
 class Tree{
     int data;
@@ -1140,7 +1140,7 @@ class Solution{
 }
 
 
-</code></pre><h2 id="19a58fd8-d211-80f7-9e6b-db204f9831c3" class="">Program7</h2><p id="19a58fd8-d211-8023-bdaf-f1163f5990f2" class="">The Indian Army has established multiple military camps at strategic locations<br/>along the Line of Actual Control (LAC) in Galwan. These camps are connected in<br/>a hierarchical structure, with a main base camp acting as the root of the network.<br/></p><p id="19a58fd8-d211-80e6-ab5a-d61eeed19e45" class="">To fortify national security, the Government of India has planned to deploy<br/>a protective S.H.I.E.L.D. that encloses all military camps forming the outer<br/>boundary of the network.<br/></p><p id="19a58fd8-d211-8055-b028-e7c2e0aa7b08" class="">Structure of Military Camps:<br/>- Each military camp is uniquely identified by an integer ID.<br/>- A camp can have at most two direct connections:<br/>- Left connection → Represents a subordinate camp on the left.<br/>- Right connection → Represents a subordinate camp on the right.<br/>- If a military camp does not exist at a specific position, it is<br/>represented by -1<br/></p><p id="19a58fd8-d211-80f8-8c16-def9dc7ac2b5" class="">Mission: Deploying the S.H.I.E.L.D.<br/>Your task is to determine the list of military camp IDs forming the outer<br/>boundary of the military network. This boundary must be traversed in<br/>anti-clockwise order, starting from the main base camp (root).<br/></p><p id="19a58fd8-d211-809b-8af3-d3958e7f3cf0" class="">The boundary consists of:</p><ol type="1" id="19a58fd8-d211-8097-bd13-d8f3d8bdc664" class="numbered-list" start="1"><li>The main base camp (root).</li></ol><ol type="1" id="19a58fd8-d211-80f4-bf2a-cf4978f74791" class="numbered-list" start="2"><li>The left boundary:<ul id="19a58fd8-d211-8037-9f63-d63bed18a185" class="bulleted-list"><li style="list-style-type:disc">Starts from the root’s left child and follows the leftmost path downwards.</li></ul><ul id="19a58fd8-d211-8000-b8f4-e9a094e7225f" class="bulleted-list"><li style="list-style-type:disc">If a camp has a left connection, follow it.</li></ul><ul id="19a58fd8-d211-8069-8aef-eacaabd04c6c" class="bulleted-list"><li style="list-style-type:disc">If no left connection exists but a right connection does, follow the right connection.</li></ul><ul id="19a58fd8-d211-803c-ad1a-c80464daa0b8" class="bulleted-list"><li style="list-style-type:disc">The leftmost leaf camp is NOT included in this boundary.</li></ul></li></ol><ol type="1" id="19a58fd8-d211-8001-8bec-c510264d94be" class="numbered-list" start="3"><li>The leaf camps (i.e., camps with no further connections), ordered from left to right.</li></ol><ol type="1" id="19a58fd8-d211-8038-a0a1-ede1fc63063d" class="numbered-list" start="4"><li>The right boundary (in reverse order):<ul id="19a58fd8-d211-80e9-9466-ce4147231278" class="bulleted-list"><li style="list-style-type:disc">Starts from the root’s right child and follows the rightmost path downwards.</li></ul><ul id="19a58fd8-d211-80f7-89ff-f8966946e932" class="bulleted-list"><li style="list-style-type:disc">If a camp has a right connection, follow it.</li></ul><ul id="19a58fd8-d211-8079-bc9d-f3cae63243ee" class="bulleted-list"><li style="list-style-type:disc">If no right connection exists but a left connection does, follow the left connection.</li></ul><ul id="19a58fd8-d211-807c-bd4e-e849a13fe91a" class="bulleted-list"><li style="list-style-type:disc">The rightmost leaf camp is NOT included in this boundary.</li></ul></li></ol><h2 id="19a58fd8-d211-80e6-a236-ed6744095e98" class="">Input Format:</h2><p id="19a58fd8-d211-8079-b57a-fad7594a0243" class="">space separated integers, military-camp IDs.</p><h2 id="19a58fd8-d211-8016-a1ba-f26b6e2cc75c" class="">Output Format:</h2><p id="19a58fd8-d211-80b8-bbd8-e365b6fe8063" class="">Print all the military-camp IDs, which are at the edge of S.H.I.E.L.D.</p><h2 id="19a58fd8-d211-8072-9cec-cb4098a6922c" class="">Sample Input-1:</h2><p id="19a58fd8-d211-80fe-8652-cd471e6c3437" class="">5 2 4 7 9 8 1</p><h2 id="19a58fd8-d211-80b5-98d1-c3ca7e487ffc" class="">Sample Output-1:</h2><p id="19a58fd8-d211-8057-ab0e-dcb06866f4c0" class="">[5, 2, 7, 9, 8, 1, 4]</p><h2 id="19a58fd8-d211-803e-8a9c-f5dee02b5bf8" class="">Sample Input-2:</h2><p id="19a58fd8-d211-80b9-8deb-f73d379878f4" class="">11 2 13 4 25 6 -1 -1 -1 7 18 9 10</p><h2 id="19a58fd8-d211-8058-805c-c72d7f8c23ef" class="">Sample Output-2:</h2><p id="19a58fd8-d211-80d2-be2c-e9194193738c" class="">[11, 2, 4, 7, 18, 9, 10, 6, 13]</p><h2 id="19a58fd8-d211-80c2-ae8b-f7d9eddba2fc" class="">Sample Input-3:</h2><p id="19a58fd8-d211-80fb-be4e-ddf6dcb19158" class="">1 2 3 -1 -1 -1 5 -1 6 7</p><h2 id="19a58fd8-d211-80e4-a8e6-ea15270aa363" class="">Sample Output-3:</h2><p id="19a58fd8-d211-8074-860e-e988015057dd" class="">[1, 2, 7, 6, 5, 3]</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="19a58fd8-d211-800b-8bf8-cbd8c9906c06" class="code"><code class="language-Java">import java.util.*;
+</code></pre><h2 id="19a58fd8-d211-80f7-9e6b-db204f9831c3" class="">Program7 (Boundary Traversal)</h2><p id="19a58fd8-d211-8023-bdaf-f1163f5990f2" class="">The Indian Army has established multiple military camps at strategic locations<br/>along the Line of Actual Control (LAC) in Galwan. These camps are connected in<br/>a hierarchical structure, with a main base camp acting as the root of the network.<br/></p><p id="19a58fd8-d211-80e6-ab5a-d61eeed19e45" class="">To fortify national security, the Government of India has planned to deploy<br/>a protective S.H.I.E.L.D. that encloses all military camps forming the outer<br/>boundary of the network.<br/></p><p id="19a58fd8-d211-8055-b028-e7c2e0aa7b08" class="">Structure of Military Camps:<br/>- Each military camp is uniquely identified by an integer ID.<br/>- A camp can have at most two direct connections:<br/>- Left connection → Represents a subordinate camp on the left.<br/>- Right connection → Represents a subordinate camp on the right.<br/>- If a military camp does not exist at a specific position, it is<br/>represented by -1<br/></p><p id="19a58fd8-d211-80f8-8c16-def9dc7ac2b5" class="">Mission: Deploying the S.H.I.E.L.D.<br/>Your task is to determine the list of military camp IDs forming the outer<br/>boundary of the military network. This boundary must be traversed in<br/>anti-clockwise order, starting from the main base camp (root).<br/></p><p id="19a58fd8-d211-809b-8af3-d3958e7f3cf0" class="">The boundary consists of:</p><ol type="1" id="19a58fd8-d211-8097-bd13-d8f3d8bdc664" class="numbered-list" start="1"><li>The main base camp (root).</li></ol><ol type="1" id="19a58fd8-d211-80f4-bf2a-cf4978f74791" class="numbered-list" start="2"><li>The left boundary:<ul id="19a58fd8-d211-8037-9f63-d63bed18a185" class="bulleted-list"><li style="list-style-type:disc">Starts from the root’s left child and follows the leftmost path downwards.</li></ul><ul id="19a58fd8-d211-8000-b8f4-e9a094e7225f" class="bulleted-list"><li style="list-style-type:disc">If a camp has a left connection, follow it.</li></ul><ul id="19a58fd8-d211-8069-8aef-eacaabd04c6c" class="bulleted-list"><li style="list-style-type:disc">If no left connection exists but a right connection does, follow the right connection.</li></ul><ul id="19a58fd8-d211-803c-ad1a-c80464daa0b8" class="bulleted-list"><li style="list-style-type:disc">The leftmost leaf camp is NOT included in this boundary.</li></ul></li></ol><ol type="1" id="19a58fd8-d211-8001-8bec-c510264d94be" class="numbered-list" start="3"><li>The leaf camps (i.e., camps with no further connections), ordered from left to right.</li></ol><ol type="1" id="19a58fd8-d211-8038-a0a1-ede1fc63063d" class="numbered-list" start="4"><li>The right boundary (in reverse order):<ul id="19a58fd8-d211-80e9-9466-ce4147231278" class="bulleted-list"><li style="list-style-type:disc">Starts from the root’s right child and follows the rightmost path downwards.</li></ul><ul id="19a58fd8-d211-80f7-89ff-f8966946e932" class="bulleted-list"><li style="list-style-type:disc">If a camp has a right connection, follow it.</li></ul><ul id="19a58fd8-d211-8079-bc9d-f3cae63243ee" class="bulleted-list"><li style="list-style-type:disc">If no right connection exists but a left connection does, follow the left connection.</li></ul><ul id="19a58fd8-d211-807c-bd4e-e849a13fe91a" class="bulleted-list"><li style="list-style-type:disc">The rightmost leaf camp is NOT included in this boundary.</li></ul></li></ol><h2 id="19a58fd8-d211-80e6-a236-ed6744095e98" class="">Input Format:</h2><p id="19a58fd8-d211-8079-b57a-fad7594a0243" class="">space separated integers, military-camp IDs.</p><h2 id="19a58fd8-d211-8016-a1ba-f26b6e2cc75c" class="">Output Format:</h2><p id="19a58fd8-d211-80b8-bbd8-e365b6fe8063" class="">Print all the military-camp IDs, which are at the edge of S.H.I.E.L.D.</p><h2 id="19a58fd8-d211-8072-9cec-cb4098a6922c" class="">Sample Input-1:</h2><p id="19a58fd8-d211-80fe-8652-cd471e6c3437" class="">5 2 4 7 9 8 1</p><h2 id="19a58fd8-d211-80b5-98d1-c3ca7e487ffc" class="">Sample Output-1:</h2><p id="19a58fd8-d211-8057-ab0e-dcb06866f4c0" class="">[5, 2, 7, 9, 8, 1, 4]</p><h2 id="19a58fd8-d211-803e-8a9c-f5dee02b5bf8" class="">Sample Input-2:</h2><p id="19a58fd8-d211-80b9-8deb-f73d379878f4" class="">11 2 13 4 25 6 -1 -1 -1 7 18 9 10</p><h2 id="19a58fd8-d211-8058-805c-c72d7f8c23ef" class="">Sample Output-2:</h2><p id="19a58fd8-d211-80d2-be2c-e9194193738c" class="">[11, 2, 4, 7, 18, 9, 10, 6, 13]</p><h2 id="19a58fd8-d211-80c2-ae8b-f7d9eddba2fc" class="">Sample Input-3:</h2><p id="19a58fd8-d211-80fb-be4e-ddf6dcb19158" class="">1 2 3 -1 -1 -1 5 -1 6 7</p><h2 id="19a58fd8-d211-80e4-a8e6-ea15270aa363" class="">Sample Output-3:</h2><p id="19a58fd8-d211-8074-860e-e988015057dd" class="">[1, 2, 7, 6, 5, 3]</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="19a58fd8-d211-800b-8bf8-cbd8c9906c06" class="code"><code class="language-Java">import java.util.*;
 
 class Node{
     
@@ -1269,4 +1269,673 @@ class Solution{
         
     }
 }
-</code></pre></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</code></pre><h2 id="19a58fd8-d211-8092-992c-db1c27662b9f" class="">Program8 (LEFT VIEW OF BT)</h2><p id="19a58fd8-d211-80a5-a43e-f69736358ae1" class="">A software development company is designing a smart home automation<br/>system that uses sensor networks to monitor and control different devices<br/>in a house. The sensors are organized in a hierarchical structure, where each<br/>sensor node has a unique ID and can have up to two child nodes (left and right).<br/></p><p id="19a58fd8-d211-8091-8b38-da99edb9a52f" class="">The company wants to analyze the left-most sensors in the system to determine<br/>which ones are critical for detecting environmental changes. The hierarchy of<br/>the sensors is provided as a level-order input, where missing sensors are<br/>represented as -1.<br/></p><p id="19a58fd8-d211-80e6-86ec-f872924c7f8e" class="">Your task is to build the sensor network as a binary tree and then determine<br/>the left-most sensor IDs at each level.<br/></p><h2 id="19a58fd8-d211-8042-8ade-f0176f3a3e14" class="">Input Format:</h2><p id="19a58fd8-d211-80ca-90bc-c238d128094f" class="">Space separated integers, elements of the tree.</p><h2 id="19a58fd8-d211-80ba-9c2b-d0691050fd37" class="">Output Format:</h2><p id="19a58fd8-d211-8067-886b-e0e8e5f44cbe" class="">A list of integers representing the left-most sensor IDs at each level</p><h2 id="19a58fd8-d211-807b-9449-c68c7f536a34" class="">Sample Input-1:</h2><p id="19a58fd8-d211-80c2-bf32-f214a0ea0299" class="">1 2 3 4 -1 -1 5</p><h2 id="19a58fd8-d211-8024-9c77-c25d57cbe8f3" class="">Sample Output-1:</h2><p id="19a58fd8-d211-8026-bc2b-e6d57794b3ae" class="">[1, 2, 4]</p><h2 id="19a58fd8-d211-8051-9b51-de95edb10e1e" class="">Sample Input-2:</h2><p id="19a58fd8-d211-8024-8d6d-ef028fe05a95" class="">3 2 4 1 5</p><h2 id="19a58fd8-d211-80d1-95f7-cb62cb9a8eb1" class="">Sample Output-2:</h2><p id="19a58fd8-d211-8088-abcc-f00d45f652e5" class="">[3, 2, 1]</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="19a58fd8-d211-804e-a139-e9214ec4d425" class="code"><code class="language-Java">import java.util.*;
+
+
+class Tree{
+    int data;
+    Tree left;
+    Tree right;
+    Tree(int data)
+    {
+        this.data=data;
+        left=null;
+        right=null;
+    }
+}
+class Solution{
+    static Tree buildTree(int[] arr)
+    {
+        Tree root1 = new Tree(arr[0]);
+        int ind=0;
+        Queue&lt;Tree&gt; q = new LinkedList&lt;&gt;();
+        q.add(root1);
+        while(ind&lt;arr.length)
+        {
+            Tree root = q.poll();
+           if(ind+1&lt;arr.length)
+           {
+               if(arr[ind+1]!=-1)
+               {
+                   root.left = new Tree(arr[ind+1]);
+                   q.add(root.left);
+               }
+           }
+           ind++;
+           if(ind+1&lt;arr.length)
+           {
+               if(arr[ind+1]!=-1)
+               {
+                   root.right=new Tree(arr[ind+1]);
+                   q.add(root.right);
+               }
+           }
+           ind++;
+        }
+        return root1;
+    }
+    static void leftView(Tree root,int depth, List&lt;Integer&gt; ans)
+    {
+        if(root==null) return;
+        
+        
+        if(depth == ans.size()) ans.add(root.data);
+        leftView(root.left,depth+1,ans);
+        leftView(root.right,depth+1,ans);
+    }
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s[] = sc.nextLine().split(&quot; &quot;);
+        int arr[] = new int[s.length];
+        for(int i=0;i&lt;s.length;i++) arr[i] = Integer.parseInt(s[i]);
+        
+        Tree root = buildTree(arr);
+        List&lt;Integer&gt; ans = new ArrayList&lt;&gt;();
+        leftView(root,0,ans);
+        System.out.println(ans);
+    }
+}</code></pre><h2 id="1a058fd8-d211-8071-8845-f9ddf3f45144" class="">Program9</h2><p id="1a058fd8-d211-8077-bc98-f1d682128bf7" class="">Distance</p><p id="1a058fd8-d211-80ca-9754-f59f715ef481" class="">Bubloo is working with computer networks, where servers are connected<br/>in a hierarchical structure, represented as a Binary Tree. Each server (node)<br/>is uniquely identified by an integer value.<br/></p><p id="1a058fd8-d211-8041-abb8-fd7e3015a115" class="">Bubloo has been assigned an important task: find the shortest communication<br/>path (in terms of network hops) between two specific servers in the network.<br/></p><h2 id="1a058fd8-d211-8005-bde1-c5e8b0c722d8" class="">Network Structure:</h2><p id="1a058fd8-d211-809e-8c61-cf0107b2c0a5" class="">The network of servers follows a binary tree topology.<br/>Each server (node) has a unique identifier (integer).<br/>If a server does not exist at a certain position, it is represented as &#x27;-1&#x27; (NULL).<br/></p><p id="1a058fd8-d211-80e1-84f2-ca17efd3725c" class="">Given the root of the network tree, and two specific server IDs (E1 &amp; E2),<br/>determine the minimum number of network hops (edges) required to<br/>communicate between these two servers.<br/></p><h2 id="1a058fd8-d211-80c7-96ed-db6dce9b50ef" class="">Input Format:</h2><p id="1a058fd8-d211-80ac-a91d-ef97eb51d4c6" class="">Space separated integers, elements of the tree.</p><h2 id="1a058fd8-d211-80d8-947b-da0069a1e078" class="">Output Format:</h2><p id="1a058fd8-d211-80b5-a884-c3d15584c6ea" class="">Print an integer value.</p><h2 id="1a058fd8-d211-8022-971c-e3d75500954c" class="">Sample Input-1:</h2><p id="1a058fd8-d211-8080-a2d6-fbce8bd9e683" class="">1 2 4 3 5 6 7 8 9 10 11 12<br/>4 8<br/></p><h2 id="1a058fd8-d211-80b6-bbdc-d308f918b04d" class="">Sample Output-1:</h2><p id="1a058fd8-d211-80ec-9abd-cde0ab57d0e1" class="">4</p><h2 id="1a058fd8-d211-80de-9f2c-c27ac44ceaaa" class="">Explanation:</h2><p id="1a058fd8-d211-8060-a419-ce67d929da41" class="">The edegs between 4 and 8 are: [4,1], [1,2], [2,3], [3,8]</p><h2 id="1a058fd8-d211-805d-9d10-f7ec97fad922" class="">Sample Input-2:</h2><p id="1a058fd8-d211-80c4-b80c-df167431ea27" class="">1 2 4 3 5 6 7 8 9 10 11 12<br/>6 6<br/></p><h2 id="1a058fd8-d211-801c-93d1-caa1f475bed6" class="">Sample Output-2:</h2><p id="1a058fd8-d211-8071-996f-df9d64dbeb98" class="">0</p><h2 id="1a058fd8-d211-80ab-b643-e2b8e4c1b57e" class="">Explanation:</h2><p id="1a058fd8-d211-809a-85eb-e2765262ca44" class="">No edegs between 6 and 6.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a058fd8-d211-8024-914c-f39722b892f8" class="code"><code class="language-Java">import java.util.*;
+
+class Tree {
+    int data;
+    Tree left = null;
+    Tree right = null;
+
+    Tree(int data) {
+        this.data = data;
+    }
+}
+
+class Solution {
+
+    static Tree buildTree(int[] arr) {
+        if (arr.length == 0) return null;
+        
+        Tree root = new Tree(arr[0]);
+        Queue&lt;Tree&gt; q = new LinkedList&lt;&gt;();
+        q.add(root);
+        
+        int ind = 0;
+        while (!q.isEmpty() &amp;&amp; ind &lt; arr.length) {
+            Tree node = q.poll();
+            
+            if (ind + 1 &lt; arr.length &amp;&amp; arr[ind + 1] != -1) {
+                node.left = new Tree(arr[ind + 1]);
+                q.add(node.left);
+            }
+            ind++;
+            
+            if (ind + 1 &lt; arr.length &amp;&amp; arr[ind + 1] != -1) {
+                node.right = new Tree(arr[ind + 1]);
+                q.add(node.right);
+            }
+            ind++;
+        }
+        return root;
+    }
+
+    static Tree findLCA(Tree root, int src, int dest) {
+        if (root == null) return null;
+        if (root.data == src || root.data == dest) return root;
+        
+        Tree left = findLCA(root.left, src, dest);
+        Tree right = findLCA(root.right, src, dest);
+        
+        if (left != null &amp;&amp; right != null) return root;
+        
+        return (left != null) ? left : right;
+    }
+
+    static int findLevel(Tree root, int val, int level) {
+        if (root == null) return -1;
+        if (root.data == val) return level;
+        
+        int left = findLevel(root.left, val, level + 1);
+        if (left != -1) return left;
+        
+        return findLevel(root.right, val, level + 1);
+    }
+
+    static int findDist(Tree root, int src, int dest) {
+        Tree lca = findLCA(root, src, dest);
+        if (lca == null) return -1;
+        
+        int d1 = findLevel(lca, src, 0);
+        int d2 = findLevel(lca, dest, 0);
+        
+        return d1 + d2;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String[] s = sc.nextLine().split(&quot; &quot;);
+        int arr[] = new int[s.length];
+        
+        for (int i = 0; i &lt; s.length; i++) arr[i] = Integer.parseInt(s[i]);
+        
+        int src = sc.nextInt();
+        int dest = sc.nextInt();
+        
+        Tree root = buildTree(arr);
+        int dist = findDist(root, src, dest);
+        
+        System.out.println(dist!=-1?dist:-1);
+    }
+}
+
+
+
+
+// approach 2
+
+import java.util.*;
+class TreeNode
+{
+    int data;
+    TreeNode left,right;
+    public TreeNode(int v){
+        this.data=v;
+        this.left=null;
+        this.right=null;
+    }
+}
+public class prog1
+{
+    public static void buildGraph(TreeNode root,HashMap&lt;Integer,List&lt;Integer&gt;&gt; graph,HashMap&lt;Integer,Integer&gt; dist,int i){
+        if(root==null){
+            return;
+        }
+        List&lt;Integer&gt; l=graph.getOrDefault(root.data,new ArrayList&lt;&gt;());
+        if(root.left!=null){
+            l.add(root.left.data);
+        }
+        if(root.right!=null){
+            l.add(root.right.data);
+        }
+        graph.put(root.data,l);
+        
+        dist.put(root.data,i);
+        buildGraph(root.left,graph,dist,i+1);
+        buildGraph(root.right,graph,dist,i+1);
+    }
+    public static boolean isInSameTree(HashMap&lt;Integer,List&lt;Integer&gt;&gt; graph,int curNode,int targetNode){
+        if(curNode==targetNode){
+            return true;
+        }
+        boolean res=false;
+        for(int val:graph.getOrDefault(curNode,new ArrayList&lt;&gt;())){
+            res=res||isInSameTree(graph,val,targetNode);
+        }
+        return res;
+    }
+    public static int minDistance(TreeNode root,int n1,int n2){
+        HashMap&lt;Integer,List&lt;Integer&gt;&gt; graph=new HashMap&lt;&gt;();
+        HashMap&lt;Integer,Integer&gt; dist=new HashMap&lt;&gt;();
+        
+        buildGraph(root,graph,dist,0);
+        // System.out.println(&quot;Graph&quot;);
+        // System.out.println(graph);
+        // System.out.println(&quot;Distances&quot;);
+        // System.out.println(dist);
+        boolean issame = isInSameTree(graph,n1,n2) || isInSameTree(graph,n2,n1);
+        if(issame){
+            return Math.abs(dist.get(n1)-dist.get(n2));
+        }
+        return dist.get(n1)+dist.get(n2);
+    }
+    public static void main (String[] args) {
+        Scanner sc=new Scanner(System.in);
+        
+        String[] a=sc.nextLine().split(&quot; &quot;);
+        
+        int n=a.length;
+        
+        int[] arr=new int[n];
+        
+        for(int i=0;i&lt;n;i++){
+            arr[i]=Integer.parseInt(a[i]);
+        }
+        
+        TreeNode root=new TreeNode(arr[0]);
+        int idx=0;
+        
+        Queue&lt;TreeNode&gt; q=new LinkedList&lt;&gt;();
+        q.add(root);
+        
+        while(!q.isEmpty()){
+            TreeNode p=q.poll();
+            if(idx+1&lt;n &amp;&amp; arr[idx+1]!=-1){
+                p.left=new TreeNode(arr[idx+1]);
+                q.add(p.left);
+            }
+            idx++;
+            
+            if(idx+1&lt;n &amp;&amp; arr[idx+1]!=-1){
+                p.right=new TreeNode(arr[idx+1]);
+                q.add(p.right);
+            }
+            idx++;
+        }
+        int n1=sc.nextInt();
+        int n2=sc.nextInt();
+        System.out.println(minDistance(root,n1,n2));
+    }
+
+}</code></pre><h2 id="1a058fd8-d211-80ef-a5ae-c100d8492219" class="">Program10</h2><p id="1a058fd8-d211-80e1-8251-f1600d6cfdc5" class="">Symmetric</p><p id="1a058fd8-d211-803c-bb80-da41696d1a4f" class="">Mr. Rakesh is interested in working with Data Structures.</p><p id="1a058fd8-d211-80fd-b4ea-fc62ef918e67" class="">He has constructed a Binary Tree (BT) and asked his friend<br/>Anil to check whether the BT is a self-mirror tree or not.<br/></p><p id="1a058fd8-d211-8069-94e9-dc94b13eeb47" class="">Can you help Rakesh determine whether the given BT is a self-mirror tree?<br/>Return true if it is a self-mirror tree; otherwise, return false.<br/></p><h2 id="1a058fd8-d211-804e-8cf8-e5b84a53e4f6" class="">Note:</h2><p id="1a058fd8-d211-802e-bc18-dad5a8b79e9f" class="">In the tree, &#x27;-1&#x27; indicates an empty (null) node.</p><h2 id="1a058fd8-d211-808e-b639-d02219c36782" class="">Input Format:</h2><p id="1a058fd8-d211-80bb-bee8-e9a08c3eb140" class="">A single line of space separated integers, values at the treenode</p><h2 id="1a058fd8-d211-807c-9dba-e8a084876f6e" class="">Output Format:</h2><p id="1a058fd8-d211-8010-ba58-da26aefa840c" class="">Print a boolean value.</p><h2 id="1a058fd8-d211-80e5-ba9b-fac44ede7cb6" class="">Sample Input-1:</h2><p id="1a058fd8-d211-8001-92c9-f0800408afaf" class="">2 1 1 2 3 3 2</p><h2 id="1a058fd8-d211-802d-9d8d-ecad512500b7" class="">Sample Output-1:</h2><p id="1a058fd8-d211-80a4-ab36-e4f8515bcab6" class="">true</p><h2 id="1a058fd8-d211-8044-9de8-f44e1520de6b" class="">Sample Input-2:</h2><p id="1a058fd8-d211-80e8-a45c-c7dc339d9808" class="">2 1 1 -1 3 -1 3</p><h2 id="1a058fd8-d211-80e4-9ad8-cac832e4df93" class="">Sample Output-2:</h2><p id="1a058fd8-d211-8087-be1d-cee88e39360e" class="">false</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a058fd8-d211-8088-a593-e0666361665d" class="code"><code class="language-Java">import java.util.*;
+
+
+class Tree {
+    int data;
+    Tree left = null;
+    Tree right = null;
+
+    Tree(int data) {
+        this.data = data;
+    }
+}
+
+class Solution {
+
+    static Tree buildTree(int[] arr) {
+        if (arr.length == 0) return null;
+        
+        Tree root = new Tree(arr[0]);
+        Queue&lt;Tree&gt; q = new LinkedList&lt;&gt;();
+        q.add(root);
+        
+        int ind = 0;
+        while (!q.isEmpty() &amp;&amp; ind &lt; arr.length) {
+            Tree node = q.poll();
+            
+            if (ind + 1 &lt; arr.length &amp;&amp; arr[ind + 1] != -1) {
+                node.left = new Tree(arr[ind + 1]);
+                q.add(node.left);
+            }
+            ind++;
+            
+            if (ind + 1 &lt; arr.length &amp;&amp; arr[ind + 1] != -1) {
+                node.right = new Tree(arr[ind + 1]);
+                q.add(node.right);
+            }
+            ind++;
+        }
+        return root;
+    }
+
+    static boolean isSymmetric(Tree root1,Tree root2)
+    {
+        if(root1==null &amp;&amp; root2==null) return true;
+        if(root1==null || root2==null || root1.data!=root2.data) return false;
+        
+        return isSymmetric(root1.left,root2.right) &amp;&amp; isSymmetric(root1.right,root2.left);
+        
+        // return false;
+    }
+    
+
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String[] s = sc.nextLine().split(&quot; &quot;);
+        int arr[] = new int[s.length];
+        
+        for (int i = 0; i &lt; s.length; i++) arr[i] = Integer.parseInt(s[i]);
+    
+        Tree root = buildTree(arr);
+        System.out.println(isSymmetric(root.left,root.right));
+    }
+}
+
+</code></pre><h2 id="1a058fd8-d211-802d-8e9e-e77324d2ceec" class="">Program11</h2><p id="1a058fd8-d211-8017-b3d6-d406837fb0b1" class="">Balbir Singh is working with networked systems, where servers are connected<br/>in a hierarchical structure, represented as a Binary Tree. Each server (node) has<br/>a certain processing load (integer value).<br/></p><p id="1a058fd8-d211-8043-8acb-f3342d469a67" class="">Balbir has been given a critical task: split the network into two balanced<br/>sub-networks by removing only one connection (edge). The total processing<br/>load in both resulting sub-networks must be equal after the split.<br/></p><p id="1a058fd8-d211-8074-a9d2-ffc3c8deac1d" class="">Network Structure:</p><ul id="1a058fd8-d211-8082-9477-f70217c6daf7" class="bulleted-list"><li style="list-style-type:disc">The network of servers follows a binary tree structure.</li></ul><ul id="1a058fd8-d211-80ce-8a56-d8210896b5e8" class="bulleted-list"><li style="list-style-type:disc">Each server is represented by an integer value, indicating its processing load.</li></ul><ul id="1a058fd8-d211-80e7-b416-e73e3a5a9763" class="bulleted-list"><li style="list-style-type:disc">If a server does not exist at a particular position, it is represented as &#x27;-1&#x27; (NULL).</li></ul><p id="1a058fd8-d211-8094-9d45-f52bcada8e62" class="">Help Balbir Singh determine if it is possible to split the network into two equal<br/>processing load sub-networks by removing exactly one connection.<br/></p><h2 id="1a058fd8-d211-80b9-b858-d4dd35c11f8e" class="">Input Format:</h2><p id="1a058fd8-d211-80c8-bef6-e96b7cea8c9e" class="">Space separated integers, elements of the tree.</p><h2 id="1a058fd8-d211-804b-8d2d-c2caf2c53e9c" class="">Output Format:</h2><p id="1a058fd8-d211-8075-ad97-f30dd6e098a5" class="">Print a boolean value.</p><h2 id="1a058fd8-d211-8057-9343-d75173d164b6" class="">Sample Input-1:</h2><p id="1a058fd8-d211-80f6-bfd3-d130fc131dd0" class="">1 2 3 5 -1 -1 5</p><h2 id="1a058fd8-d211-8025-9cbf-ea35d309c30a" class="">Sample Output-1:</h2><p id="1a058fd8-d211-808c-ba80-cb7f1feef6f6" class="">true</p><h2 id="1a058fd8-d211-80f9-aaff-e80e314e9edc" class="">Sample Input-2:</h2><p id="1a058fd8-d211-802c-88b3-e0307b367a3e" class="">3 2 4 3 2 -1 7</p><h2 id="1a058fd8-d211-80e4-96a8-d5bf3ffc4afe" class="">Sample Output-2:</h2><p id="1a058fd8-d211-80d5-8167-f61858b3b747" class="">false</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a058fd8-d211-80a0-ad16-d5a25506c24d" class="code"><code class="language-Java">import java.util.*;
+
+class Tree{
+    int data;
+    Tree left=null;
+    Tree right=null;
+    Tree(int data) {this.data=data;}
+}
+
+class Solution{
+    static Tree buildTree(int[] arr) {
+        if (arr.length == 0) return null;
+        
+        Tree root = new Tree(arr[0]);
+        Queue&lt;Tree&gt; q = new LinkedList&lt;&gt;();
+        q.add(root);
+        
+        int ind = 1;
+        while (!q.isEmpty() &amp;&amp; ind &lt; arr.length) {
+            Tree node = q.poll();
+            
+            if (ind &lt; arr.length &amp;&amp; arr[ind] != -1) {
+                node.left = new Tree(arr[ind]);
+                q.add(node.left);
+            }
+            ind++;
+            
+            if (ind &lt; arr.length &amp;&amp; arr[ind] != -1) {
+                node.right = new Tree(arr[ind]);
+                q.add(node.right);
+            }
+            ind++;
+        }
+        return root;
+    }
+    
+    static int totalSum;
+    
+    static boolean check(Tree root) {
+        totalSum = sum(root);
+        if (totalSum % 2 != 0) return false;
+        return findPartition(root, new int[1]);
+    }
+    
+    static int sum(Tree root) {
+        if (root == null) return 0;
+        return root.data + sum(root.left) + sum(root.right);
+    }
+    
+    static boolean findPartition(Tree root, int[] subSum) {
+        if (root == null) return false;
+        
+        int leftSum = sum(root.left);
+        int rightSum = sum(root.right);
+        
+        if (leftSum == totalSum - leftSum || rightSum == totalSum - rightSum) return true;
+        
+        return findPartition(root.left, subSum) || findPartition(root.right, subSum);
+    }
+    
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String[] s = sc.nextLine().split(&quot; &quot;);
+        int arr[] = new int[s.length];
+        
+        for (int i = 0; i &lt; s.length; i++) arr[i] = Integer.parseInt(s[i]);
+        
+        Tree root = buildTree(arr);
+        System.out.println(check(root));
+    }
+}
+</code></pre><h2 id="1a058fd8-d211-80d4-867b-db977757a720" class="">Program12</h2><p id="1a058fd8-d211-80ad-a1b0-c5c96a5ebfb3" class="">Balbir Singh is working with Binary Trees.<br/>The elements of the tree is given in the level order format.<br/>Balbir has a task to split the tree into two parts by removing only one edge<br/>in the tree, such that the product of sums of both the splitted-trees should be maximum.<br/></p><p id="1a058fd8-d211-808f-8ebe-d3f0861c8ed4" class="">You will be given the root of the binary tree.<br/>Your task is to help the Balbir Singh to split the binary tree as specified.<br/>print the product value, as the product may be large, print the (product % 1000000007)<br/></p><p id="1a058fd8-d211-8089-9026-e7671042c49c" class="">NOTE:<br/>Please do consider the node with data as &#x27;-1&#x27; as null in the given trees.<br/></p><h2 id="1a058fd8-d211-807a-8c98-c520d5cd3b2e" class="">Input Format:</h2><p id="1a058fd8-d211-8066-84d6-e820918658bd" class="">Space separated integers, elements of the tree.</p><h2 id="1a058fd8-d211-8034-b312-c6fdda517047" class="">Output Format:</h2><p id="1a058fd8-d211-80b3-af5b-d1331094034f" class="">Print an integer value.</p><h2 id="1a058fd8-d211-802d-975c-e590f0abecc9" class="">Sample Input-1:</h2><p id="1a058fd8-d211-8051-9ef3-cc2ab8f46a19" class="">1 2 4 3 5 6</p><h2 id="1a058fd8-d211-8053-ad88-f5749219b372" class="">Sample Output-1:</h2><p id="1a058fd8-d211-800e-84c7-d82395c39c00" class="">110</p><h2 id="1a058fd8-d211-8033-aae5-db9e91b07348" class="">Explanation:</h2><p id="1a058fd8-d211-80e2-9e18-f2bb43f6978a" class="">if you split the tree by removing edge between 1 and 4,<br/>then the sums of two trees are 11 and 10. So, the max product is 110.<br/></p><h2 id="1a058fd8-d211-8069-be12-caa5c44cc468" class="">Sample Input-2:</h2><p id="1a058fd8-d211-805d-bc1c-e1c0eceddc7c" class="">3 2 4 3 2 -1 6</p><h2 id="1a058fd8-d211-80a1-aa19-e07ada26d141" class="">Sample Output-2:</h2><p id="1a058fd8-d211-800c-8a73-d42a5251f8dd" class="">100</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a058fd8-d211-806a-b6aa-c1adbb8c28c3" class="code"><code class="language-Java">
+import java.util.*;
+
+class Tree{
+    int data;
+    Tree left=null;
+    Tree right=null;
+    Tree(int data) {this.data=data;}
+}
+
+class Solution{
+    static Tree buildTree(int[] arr) {
+        if (arr.length == 0) return null;
+        
+        Tree root = new Tree(arr[0]);
+        Queue&lt;Tree&gt; q = new LinkedList&lt;&gt;();
+        q.add(root);
+        
+        int ind = 1;
+        while (!q.isEmpty() &amp;&amp; ind &lt; arr.length) {
+            Tree node = q.poll();
+            
+            if (ind &lt; arr.length &amp;&amp; arr[ind] != -1) {
+                node.left = new Tree(arr[ind]);
+                q.add(node.left);
+            }
+            ind++;
+            
+            if (ind &lt; arr.length &amp;&amp; arr[ind] != -1) {
+                node.right = new Tree(arr[ind]);
+                q.add(node.right);
+            }
+            ind++;
+        }
+        return root;
+    }
+    
+    static int totalSum;
+    
+    static int check(Tree root, int[] prod) {
+        totalSum = sum(root);
+        prod[0]=0;
+        findPartition(root,prod);
+        return prod[0];
+    }
+    
+    static int sum(Tree root) {
+        if (root == null) return 0;
+        return root.data + sum(root.left) + sum(root.right);
+    }
+    
+    static void findPartition(Tree root,int prod[]) {
+        if (root == null) return ;
+        
+        int leftSum = sum(root.left);
+        int rightSum = sum(root.right);
+
+        prod[0] = Math.max(prod[0],(leftSum*(totalSum-leftSum)));
+        prod[0] = Math.max(prod[0],(rightSum*(totalSum-rightSum)));
+         findPartition(root.left,prod); findPartition(root.right,prod);
+    }
+    
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String[] s = sc.nextLine().split(&quot; &quot;);
+        int arr[] = new int[s.length];
+        
+        for (int i = 0; i &lt; s.length; i++) arr[i] = Integer.parseInt(s[i]);
+        
+        Tree root = buildTree(arr);
+        int prod[] = new int[1];
+        check(root,prod);
+        System.out.println(prod[0] % 1000000007);
+    }
+}
+</code></pre><h2 id="1a058fd8-d211-8050-9119-eefda94494cd" class="">Program13</h2><p id="1a058fd8-d211-8003-af27-d32d5f78b7ab" class="">Imagine you are a librarian organizing books on vertical shelves in a grand<br/>library. The books are currently scattered across a tree-like structure, where<br/>each book (node) has a position determined by its shelf number (column) and row<br/>number (level).<br/></p><p id="1a058fd8-d211-80e2-b386-e4369e66873a" class="">Your task is to arrange the books on shelves so that:</p><ol type="1" id="1a058fd8-d211-800e-a7b1-f09374a45fd6" class="numbered-list" start="1"><li>Books are placed column by column from left to right.</li></ol><ol type="1" id="1a058fd8-d211-80a7-bc53-c05358d8fffd" class="numbered-list" start="2"><li>Within the same column, books are arranged from top to bottom (i.e., by row).</li></ol><ol type="1" id="1a058fd8-d211-80f3-ab65-f56d25ec1bed" class="numbered-list" start="3"><li>If multiple books belong to the same shelf and row, they should be arranged<br/>from left to right, just as they appear in the original scattered arrangement.<br/></li></ol><h2 id="1a058fd8-d211-805a-b34d-d364b3b6d08a" class="">Sample Input:</h2><p id="1a058fd8-d211-8099-9afe-d656b5ea7861" class="">3 9 20 -1 -1 15 7</p><h2 id="1a058fd8-d211-807b-b8c3-eb44234b893e" class="">Sample Output:</h2><p id="1a058fd8-d211-809c-82c4-c032ee444246" class="">[[9],[3,15],[20],[7]]</p><h2 id="1a058fd8-d211-8026-b18c-f8121621a29d" class="">Explanation:</h2><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a058fd8-d211-80cd-ab24-e36597b37cc9" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">     3
+   /   \\
+  9     20
+      /    \\
+     15     7
+</code></pre><p id="1a058fd8-d211-8058-9d2c-c771a91986b6" class="">Shelf 1: [9]<br/>Shelf 2: [3, 15]<br/>Shelf 3: [20]<br/>Shelf 4: [7]<br/></p><h2 id="1a058fd8-d211-80dd-815d-fe21a9e75bd9" class="">Sample Input-2:</h2><p id="1a058fd8-d211-8011-8e5e-fea387741dc9" class="">3 9 8 4 0 1 7</p><h2 id="1a058fd8-d211-80d1-b4c6-dfbc7614df7e" class="">Sample Output-2:</h2><p id="1a058fd8-d211-80f8-8d25-eed9ee896f7d" class="">[[4],[9],[3,0,1],[8],[7]]</p><h2 id="1a058fd8-d211-8043-b626-ef512238395a" class="">Explanation:</h2><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a058fd8-d211-8038-8fff-ed796ed0e7e6" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">      3
+   /     \\
+  9       8
+/   \\   /   \\
+</code></pre><p id="1a058fd8-d211-8071-bdda-e222547fb5c1" class="">4     0 1     7</p><p id="1a058fd8-d211-800b-9fdf-fb7a6d406e3d" class="">Shelf 1: [4]<br/>Shelf 2: [9]<br/>Shelf 3: [3, 0, 1]<br/>Shelf 4: [8]<br/>Shelf 5: [7]<br/></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a058fd8-d211-80f0-9114-ebdab38889ee" class="code"><code class="language-Java">import java.util.*;
+
+class Tree{
+    int data;
+    Tree left=null;
+    Tree right=null;
+    Tree(int data) {this.data=data;}
+}
+
+class Pair{
+    Tree node;
+    int x;
+    int y;
+    Pair(Tree node,int x, int y)
+    {
+        this.node=node;
+        this.x=x;
+        this.y=y;
+    }
+}
+
+class Solution{
+    static Tree buildTree(int[] arr) {
+        if (arr.length == 0) return null;
+        
+        Tree root = new Tree(arr[0]);
+        Queue&lt;Tree&gt; q = new LinkedList&lt;&gt;();
+        q.add(root);
+        
+        int ind = 1;
+        while (!q.isEmpty() &amp;&amp; ind &lt; arr.length) {
+            Tree node = q.poll();
+            
+            if (ind &lt; arr.length &amp;&amp; arr[ind] != -1) {
+                node.left = new Tree(arr[ind]);
+                q.add(node.left);
+            }
+            ind++;
+            
+            if (ind &lt; arr.length &amp;&amp; arr[ind] != -1) {
+                node.right = new Tree(arr[ind]);
+                q.add(node.right);
+            }
+            ind++;
+        }
+        return root;
+    }
+    
+    
+    
+    static void verticalOrder(Tree root)
+    {
+        Map&lt;Integer,ArrayList&lt;Integer&gt;&gt; nodes = new TreeMap&lt;&gt;();
+        
+        Queue&lt;Pair&gt; q = new LinkedList&lt;&gt;();
+        
+        q.add(new Pair(root,0,0));
+        
+        while(!q.isEmpty())
+        {
+            Pair p  =q.poll();
+            
+            Tree temp=p.node;
+            int x=p.x;
+            int y=p.y;
+            
+            nodes.computeIfAbsent(x,k-&gt; new ArrayList&lt;&gt;()).add(temp.data);
+                
+            if(temp.left!=null) q.add(new Pair(temp.left,x-1,y+1));
+            if(temp.right!=null) q.add(new Pair(temp.right,x+1,y+1));
+        }
+        
+        List&lt;List&lt;Integer&gt;&gt; ans = new ArrayList&lt;&gt;();
+        
+        for(ArrayList&lt;Integer&gt; entry: nodes.values()){
+
+            ans.add(entry);
+        }
+        
+        System.out.println(ans);
+    }
+    
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String[] s = sc.nextLine().split(&quot; &quot;);
+        int arr[] = new int[s.length];
+        
+        for (int i = 0; i &lt; s.length; i++) arr[i] = Integer.parseInt(s[i]);
+        
+        Tree root = buildTree(arr);
+        
+        verticalOrder(root);
+
+        
+    }
+}
+</code></pre><h2 id="1a058fd8-d211-80ca-8607-cbb953d264a9" class="">Program14</h2><p id="1a058fd8-d211-809e-9725-ebcd828976ed" class="">You are a gardener designing a beautiful floral pathway in a vast botanical<br/>garden. The garden is currently overgrown with plants, trees, and bushes<br/>arranged in a complex branching structure, much like a binary tree. Your task<br/>is to carefully prune and rearrange the plants to form a single-file walking<br/>path that visitors can follow effortlessly.<br/></p><p id="1a058fd8-d211-80f0-a9a6-c43ee6b1507b" class="">To accomplish this, you must flatten the garden’s layout into a linear sequence<br/>while following these rules:<br/>1. The garden path should maintain the same PlantNode structure,<br/>where the right branch connects to the next plant in the sequence,<br/>and the left branch is always trimmed (set to null).<br/>2. The plants in the final garden path should follow the same arrangement<br/>as a pre-order traversal of the original garden layout.<br/></p><h2 id="1a058fd8-d211-80a1-9c27-fc6b94d97641" class="">Input Format:</h2><p id="1a058fd8-d211-8062-9aff-cdedb7af071e" class="">Space separated integers, elements of the tree.</p><h2 id="1a058fd8-d211-8041-ad92-fd10eadc4a77" class="">Output Format:</h2><p id="1a058fd8-d211-807f-b22f-d686fa786315" class="">Print the list.</p><h2 id="1a058fd8-d211-80f7-9fde-d446ecbb6844" class="">Sample Input:</h2><p id="1a058fd8-d211-8048-89d6-df1349c7aaf0" class="">1 2 5 3 4 -1 6</p><h2 id="1a058fd8-d211-800a-97c7-cd7179cb4f90" class="">Sample Output:</h2><p id="1a058fd8-d211-8084-a064-d114b32e38df" class="">1 2 3 4 5 6</p><h2 id="1a058fd8-d211-80e9-96f0-c095dc8b0958" class="">Explanation:</h2><p id="1a058fd8-d211-80a4-86b7-c85436e3c52e" class="">input structure:<br/>1<br/>/ \<br/>2   5<br/>/ \    \<br/>3   4    6<br/></p><p id="1a058fd8-d211-80fc-b495-c2b8ed05e369" class="">output structure:<br/>1<br/>\<br/>2<br/>\<br/>3<br/>\<br/>4<br/>\<br/>5<br/>\<br/>6<br/></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a058fd8-d211-8039-aad3-e65ea1c663bf" class="code"><code class="language-Java">
+import java.util.*;
+
+
+class Tree{
+    int data;
+    Tree left=null;
+    Tree right=null;
+    Tree(int data) {this.data=data;}
+}
+
+
+
+
+class Solution{
+    static Tree buildTree(int[] arr) {
+        if (arr.length == 0) return null;
+        
+        Tree root = new Tree(arr[0]);
+        Queue&lt;Tree&gt; q = new LinkedList&lt;&gt;();
+        q.add(root);
+        
+        int ind = 1;
+        while (!q.isEmpty() &amp;&amp; ind &lt; arr.length) {
+            Tree node = q.poll();
+            
+            if (ind &lt; arr.length &amp;&amp; arr[ind] != -1) {
+                node.left = new Tree(arr[ind]);
+                q.add(node.left);
+            }
+            ind++;
+            
+            if (ind &lt; arr.length &amp;&amp; arr[ind] != -1) {
+                node.right = new Tree(arr[ind]);
+                q.add(node.right);
+            }
+            ind++;
+        }
+        return root;
+    }
+    
+    static void buildList(Tree root)
+    {
+        if(root==null) return;
+        
+        
+        Tree left=root.left;
+        Tree right=root.right;
+        
+        Tree temp=left;
+        while(temp!=null &amp;&amp; temp.right!=null) temp=temp.right;
+        
+        if(temp!=null)
+            temp.right=right;
+        
+        root.right=(left!=null)?left:right;
+        root.left=null;
+        
+        buildList(root.right);
+
+    }
+    
+    static void level(Tree root){
+        Queue&lt;Tree&gt; q = new LinkedList&lt;&gt;();
+        q.add(root);
+        while(!q.isEmpty())
+        {
+            int s=q.size();
+            for(int i=0;i&lt;s;i++)
+            {
+                Tree n=q.poll();
+                System.out.print(n.data+&quot; &quot;);
+                if(n.left!=null) q.add(n.left);
+                if(n.right!=null) q.add(n.right);
+            }
+        }
+    }
+    static void inorder(Tree root){
+        if(root==null) return;
+        inorder(root.left);
+        System.out.print(root.data+&quot; &quot;);
+        inorder(root.right);
+    }
+
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String[] s = sc.nextLine().split(&quot; &quot;);
+        int arr[] = new int[s.length];
+        
+        for (int i = 0; i &lt; s.length; i++) arr[i] = Integer.parseInt(s[i]);
+        
+        Tree root = buildTree(arr);
+        
+        buildList(root);
+        
+        level(root);
+    
+
+        
+    }
+}</code></pre><p id="1a058fd8-d211-80f8-8beb-f9f7acb0ca93" class="">Program15</p><p id="1a058fd8-d211-80bc-a398-c6d0c2bc2e07" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

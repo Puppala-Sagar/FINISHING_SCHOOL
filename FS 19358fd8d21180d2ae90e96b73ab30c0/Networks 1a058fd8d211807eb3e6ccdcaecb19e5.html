@@ -1,4 +1,4 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>FS</title><style>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Networks</title><style>
 /* cspell:disable-file */
 /* webkit printing magic: print all background colors */
 html {
@@ -681,5 +681,77 @@ blockquote {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="19358fd8-d211-80d2-ae90-e96b73ab30c0" class="page sans"><header><h1 class="page-title">FS</h1><p class="page-description"></p></header><div class="page-body"><p id="19358fd8-d211-815b-9b80-f7c1e6909749" class="">
-</p><figure id="19358fd8-d211-80bb-a403-c7807b8b59a6" class="link-to-page"><a href="FS%2019358fd8d21180d2ae90e96b73ab30c0/SLIDING%20WINDOW%2019358fd8d21180bba403c7807b8b59a6.html">SLIDING WINDOW</a></figure><figure id="19358fd8-d211-805f-a38c-dae93d86f87a" class="link-to-page"><a href="FS%2019358fd8d21180d2ae90e96b73ab30c0/TREES%2019358fd8d211805fa38cdae93d86f87a.html">TREES</a></figure><figure id="1a058fd8-d211-808e-843d-ddb171067a32" class="link-to-page"><a href="FS%2019358fd8d21180d2ae90e96b73ab30c0/Backtracking%201a058fd8d211808e843dddb171067a32.html">Backtracking</a></figure><figure id="1a058fd8-d211-807e-b3e6-ccdcaecb19e5" class="link-to-page"><a href="FS%2019358fd8d21180d2ae90e96b73ab30c0/Networks%201a058fd8d211807eb3e6ccdcaecb19e5.html">Networks</a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style></head><body><article id="1a058fd8-d211-807e-b3e6-ccdcaecb19e5" class="page sans"><header><h1 class="page-title">Networks</h1><p class="page-description"></p></header><div class="page-body"><h2 id="1a058fd8-d211-8063-9b3d-e57d906a996e" class="">Program1</h2><p id="1a058fd8-d211-80a7-bbac-c941d388eb83" class="">In computer networking, subnetting is the process of dividing a larger IP network<br/>into multiple smaller subnetworks (subnets). Given a base network IP address,<br/>a CIDR (Classless Inter-Domain Routing) prefix, and the number of subnets required,<br/>write a Java program that calculates the starting addresses of all the subnets.<br/></p><p id="1a058fd8-d211-80e5-8f00-ed9d39a23894" class="">Your program should take as input:<br/>- A base network address (e.g., 192.168.1.0).<br/>- A CIDR prefix (e.g., /26 means a subnet mask of 255.255.255.192).<br/>- The number of subnets to generate.<br/></p><p id="1a058fd8-d211-80c3-9d82-d4bf3819e621" class="">The program should then compute and return the starting addresses of each subnet.</p><h2 id="1a058fd8-d211-8037-903c-fb8327a5a884" class="">Input Format:</h2><p id="1a058fd8-d211-809d-b8b1-ef764e5127c0" class="">A string NIP: The base network IP address (e.g., &quot;192.168.1.0&quot;).<br/>An integer CIDR: The subnet mask prefix (e.g., 26 for /26).<br/>An integer numSubnets: The number of subnets to be generated.<br/></p><h2 id="1a058fd8-d211-8077-9e86-e443e72b1a66" class="">Output Format:</h2><p id="1a058fd8-d211-807a-98fc-ea49d3bf384a" class="">A list of subnet addresses, each representing the starting address of a subnet.</p><h2 id="1a058fd8-d211-80a4-8317-e95c08760e1d" class="">Sample Input:</h2><p id="1a058fd8-d211-8074-b7bc-de8be9e24a70" class="">192.168.1.0<br/>26<br/>4<br/></p><h2 id="1a058fd8-d211-80dd-981c-c8dd4a85ff5f" class="">Sample Output:</h2><p id="1a058fd8-d211-80ce-a441-dfb3db0710aa" class="">[192.168.1.0/28, 192.168.1.16/28, 192.168.1.32/28, 192.168.1.48/28]</p><h2 id="1a058fd8-d211-80b0-9852-e61e9162068e" class="">Explanation:</h2><p id="1a058fd8-d211-80a5-9672-c3fa7f107724" class="">A /26 subnet has 64 IP addresses. The starting addresses of<br/>the first four subnets are:<br/>192.168.1.0/28,<br/>192.168.1.16/28,<br/>192.168.1.32/28,<br/>192.168.1.48/28<br/></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a058fd8-d211-801e-a0b8-de78b2cd55e3" class="code"><code class="language-Java">import java.util.*;
+
+
+class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String[] s = sc.nextLine().split(&quot;\\.&quot;);
+        int[] ip = new int[s.length];
+        for (int i = 0; i &lt; s.length; i++) 
+            ip[i] = Integer.parseInt(s[i]);
+
+        int cidr = sc.nextInt();
+        int n = sc.nextInt();
+
+        int bitsNeeded = (int) Math.ceil(Math.log(n) / Math.log(2));
+        int newCidr = cidr + bitsNeeded;
+
+        int numSub = (int) Math.pow(2, 32 - newCidr);
+
+        List&lt;String&gt; l = new ArrayList&lt;&gt;();
+        
+        for (int i = 0; i &lt; n; i++) {
+            l.add(ip[0] + &quot;.&quot; + ip[1] + &quot;.&quot; + ip[2] + &quot;.&quot; + ip[3] + &quot;/&quot; + newCidr);
+
+            ip[3] += numSub;
+
+            for (int j = 3; j &gt;= 0; j--) {
+                if (ip[j] &gt; 255) {
+                    ip[j] -= 256;
+                    ip[j - 1]++; 
+                }
+            }
+        }
+        System.out.println(l);
+    }
+}
+
+</code></pre><h2 id="1a058fd8-d211-80e2-9f25-f84f9dbfb763" class="">Program2</h2><p id="1a058fd8-d211-8047-9bbf-fbf5f906a4ff" class="">In computer networking, subnetting is the process of dividing a larger IP network<br/>into multiple smaller subnetworks (subnets). Given a base network IP address,<br/>a CIDR (Classless Inter-Domain Routing) prefix, and the number of subnets required,<br/>write a Java program that calculates the starting addresses of all the subnets.<br/></p><p id="1a058fd8-d211-80b9-be0b-fcd1eb1290af" class="">Your program should take as input:<br/>- A base network address (e.g., 192.168.1.0).<br/>- A CIDR prefix (e.g., /26 means a subnet mask of 255.255.255.192).<br/>- The number of subnets to generate.<br/></p><p id="1a058fd8-d211-8052-acad-c351e140885e" class="">The program should then compute and return the starting addresses of each subnet.</p><h2 id="1a058fd8-d211-806d-aac6-ea7e3c2f33e9" class="">Input Format:</h2><p id="1a058fd8-d211-80f0-a7ba-f909b370df88" class="">A string NIP: The base network IP address (e.g., &quot;192.168.1.0&quot;).<br/>An integer CIDR: The subnet mask prefix (e.g., 26 for /26).<br/>An integer numSubnets: The number of subnets to be generated.<br/></p><h2 id="1a058fd8-d211-8041-aeda-f7d0bd2d2733" class="">Output Format:</h2><p id="1a058fd8-d211-8084-a889-f0c3b54e8085" class="">A list of subnet addresses, each representing the starting address of a subnet.</p><h2 id="1a058fd8-d211-80ad-82e5-cd5fff873fde" class="">Sample Input:</h2><p id="1a058fd8-d211-80e9-ac73-ccacd3b80d8d" class="">192.168.1.0<br/>26<br/>4<br/></p><h2 id="1a058fd8-d211-8026-ab42-ce61b3fb85ec" class="">Sample Output:192.168.1.0</h2><p id="1a058fd8-d211-800c-af17-ed38be83ff86" class="">[192.168.1.0/28, 192.168.1.16/28, 192.168.1.32/28, 192.168.1.48/28]</p><h2 id="1a058fd8-d211-80c6-b873-f4f8d4e38466" class="">Explanation:</h2><p id="1a058fd8-d211-8040-a3ae-c2b383b9732b" class="">A /26 subnet has 64 IP addresses. The starting addresses of<br/>the first four subnets are:<br/>192.168.1.0/28,<br/>192.168.1.16/28,<br/>192.168.1.32/28,<br/>192.168.1.48/28<br/></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a058fd8-d211-8055-b6cf-f36bb78696b1" class="code"><code class="language-Java">import java.util.*;
+
+class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        String[] s = sc.nextLine().split(&quot;\\.&quot;);
+        int[] ip = new int[s.length];
+        for (int i = 0; i &lt; s.length; i++) 
+            ip[i] = Integer.parseInt(s[i]);
+
+        int cidr = sc.nextInt();
+        int n = sc.nextInt();
+
+        int newcidr = cidr + (int)(Math.log(n) / Math.log(2));
+        
+        int numSub = (int) Math.pow(2, 32 - newcidr);
+
+        List&lt;String&gt; l = new ArrayList&lt;&gt;();
+
+        for (int i = 0; i &lt; n; i++) {
+            l.add(ip[0] + &quot;.&quot; + ip[1] + &quot;.&quot; + ip[2] + &quot;.&quot; + ip[3] + &quot;/&quot; + newcidr);
+            
+            ip[3] += numSub;
+
+            for (int j = 3; j &gt;= 0; j--) {
+                if (ip[j] &gt; 255) {
+                    ip[j] -= 256;
+                    if (j &gt; 0) ip[j - 1]++; 
+                }
+            }
+        }
+        System.out.println(l);
+    }
+}
+</code></pre><h2 id="1a058fd8-d211-809e-bb77-dafbfb43fb27" class="">Program3</h2><p id="1a058fd8-d211-80b2-8f34-c2fd4ba37d8f" class="">In networking, a subnet is a portion of a network with a defined range of IP addresses.<br/>Two subnets overlap if they share some common IP addresses. Given two network<br/>IP addresses with their respective CIDR notations, write a program that determines<br/>whether these subnets overlap.<br/></p><p id="1a058fd8-d211-8029-bae8-f74233eed065" class="">Your program should take as input:</p><p id="1a058fd8-d211-80dc-9bbe-c984f8cc9960" class="">IP1: The first subnet’s network address.<br/>CIDR1: The CIDR notation (prefix length) for the first subnet.<br/>IP2: The second subnet’s network address.<br/>CIDR2: The CIDR notation (prefix length) for the second subnet.<br/>The program should return true if the subnets overlap and false otherwise.<br/></p><h2 id="1a058fd8-d211-805f-a331-cc452c25f5eb" class="">Input Format:</h2><p id="1a058fd8-d211-8020-9aa0-f47d39df6a48" class="">A string IP1: The first network IP address (e.g., &quot;192.168.1.0&quot;).<br/>An integer CIDR1: The subnet mask prefix (e.g., 24 for /24).<br/>A string IP2: The second network IP address (e.g., &quot;192.168.1.128&quot;).<br/>An integer CIDR2: The subnet mask prefix for the second subnet.<br/></p><h2 id="1a058fd8-d211-8089-ae88-d31c697406c8" class="">Output Format:</h2><p id="1a058fd8-d211-8091-8bc1-f64b77a8d648" class="">A boolean value, if the two subnets overlap or not.</p><h2 id="1a058fd8-d211-801f-b91c-dd9a76b09435" class="">Sample Input:</h2><p id="1a058fd8-d211-804d-9cf3-ea5be807df83" class="">192.168.1.0<br/>24<br/>192.168.1.128<br/>25<br/></p><h2 id="1a058fd8-d211-80d5-b4ce-ddfdb61f069f" class="">Sample Output:</h2><p id="1a058fd8-d211-80b8-b59c-f27c5c16bcd7" class="">true</p><h2 id="1a058fd8-d211-80a7-bc7c-eb1428dd356e" class="">Explanation:</h2><p id="1a058fd8-d211-8016-88ad-d395af932fd3" class="">A /26 subnet has 64 IP addresses. The starting addresses of<br/>the first four subnets are:<br/>192.168.1.0<br/>192.168.1.64<br/>192.168.1.128<br/>192.168.1.192<br/></p><h2 id="1a058fd8-d211-8037-8276-c31ddae9f840" class="">Sample Input:</h2><p id="1a058fd8-d211-804f-b3e3-f9f31e0893c2" class="">10.0.0.0<br/>16<br/>10.1.0.0<br/>16<br/></p><h2 id="1a058fd8-d211-80eb-9efc-c58f74fee035" class="">Sample Output:</h2><p id="1a058fd8-d211-80dc-abd5-da51a4116323" class="">false</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -2101,4 +2101,259 @@ public class Solution{
     }
     
 }
+</code></pre><h2 id="1a858fd8-d211-8026-aaa5-e20b2b519155" class="">Program17</h2><p id="1a858fd8-d211-80e3-85a2-c771a99825db" class="">Imagine you are navigating a maze where each path you take has a section with a<br/>code. The maze is structured as a series of interconnected rooms,<br/>represented as a tree structure. Each room in the maze has a code (integral value)<br/>associated with it, and you are trying to check if a given sequence of code<br/>matches a valid path from the entrance to an exit.<br/></p><p id="1a858fd8-d211-800f-a2bf-ce8489503f41" class="">You are provide with the maze structure, where you have to build the maze and then,<br/>you are provided with a series of space seperated digits, representing a journey<br/>starting from the entrance and passing through the rooms along the way.<br/>The task is to verify whether the path corresponding to this array of codes<br/>exists in the maze.<br/></p><p id="1a858fd8-d211-804c-be58-c430354a2849" class="">Example 1:<br/>Input:<br/>0 1 0 0 1 0 -1 -1 1 0 0         //maze structure<br/>0 1 0 1                         //path to verify<br/></p><p id="1a858fd8-d211-80a0-bb81-c78e04572a4f" class="">Output: true</p><p id="1a858fd8-d211-8021-863f-cba91c709514" class="">Explanation:<br/>0<br/>/   \<br/>1     0<br/>/ \    /<br/>0   1  0<br/>\  / \<br/>1 0  0<br/></p><p id="1a858fd8-d211-8090-b098-e387c37e9bcb" class="">The given path 0 → 1 → 0 → 1 is a valid path in the maze.<br/>Other valid sequences in the maze include 0 → 1 → 1 → 0 and 0 → 0 → 0.<br/></p><p id="1a858fd8-d211-80f7-80f9-d1041ccc1703" class="">Example 2:<br/>Input:<br/>1 2 3<br/>1 2 3<br/></p><p id="1a858fd8-d211-8084-8680-ef8fbb399fc4" class="">output: false</p><p id="1a858fd8-d211-8051-a19b-dfc855843535" class="">Explanation:<br/>The proposed path 1 → 2 → 3 does not exist in the maze,<br/>so it cannot be a valid path.<br/></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a858fd8-d211-80fc-997d-e393d973795f" class="code"><code class="language-Java">import java.util.*;
+
+class Tree{
+    int data;
+    Tree left,right;
+    Tree(int data){
+        this.data=data;
+        left=null;
+        right=null;
+    }
+}
+public class Solution{
+    
+    static int cnt;
+    static Tree buildTree(int[] arr){
+        Tree root = new Tree(arr[0]);
+        Queue&lt;Tree&gt; q = new LinkedList&lt;&gt;();
+        int ind=0;
+        int n=arr.length;
+        q.add(root);
+        while(!q.isEmpty()){
+            Tree node = q.poll();
+            if(ind+1&lt;n){
+                if(arr[ind+1]!=-1)
+                {
+                    node.left=new Tree(arr[ind+1]);
+                    q.add(node.left);
+                }
+            }
+            ind++;
+            if(ind+1&lt;n){
+                if(arr[ind+1]!=-1)
+                {
+                    node.right=new Tree(arr[ind+1]);
+                    q.add(node.right);
+                }
+            }
+            ind++;
+        }
+        return root;
+    }
+    
+    static boolean validate(Tree root, int[] path, int ind,boolean vis[])
+    {
+        if(path.length==ind) return true;
+        if(root==null) return false;
+        if(path[ind]!=root.data) return false;
+        return validate(root.left,path,ind+1,vis) || validate(root.right,path,ind+1,vis);
+        
+    }
+  
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        cnt=0;
+        String s[]=sc.nextLine().split(&quot; &quot;);
+        int n=s.length;
+        int arr[] = new int[n];
+        for(int i=0;i&lt;n;i++) arr[i]=Integer.parseInt(s[i]+&quot;&quot;);
+        
+        String p[]=sc.nextLine().split(&quot; &quot;);
+        n=p.length;
+        int path[] = new int[n];
+        for(int i=0;i&lt;n;i++) path[i]=Integer.parseInt(p[i]+&quot;&quot;);
+        
+        Tree root = buildTree(arr);
+        if(root.data!=path[0])
+        {
+            System.out.println(false);
+            return;
+        }else
+        System.out.println(validate(root,path,0,new boolean[n]));
+    
+    }
+    
+}
+
+</code></pre><h2 id="1a858fd8-d211-80d2-b222-d87ff596ea03" class="">Program18 </h2><p id="1a858fd8-d211-805d-96af-e86e68a99664" class="">Imagine you are designing a network of secret corridors in an ancient castle.<br/>Each chamber in the castle leads to at most two other chambers through<br/>hidden passageways, forming a branching layout.<br/>The castle’s &quot;longest secret route&quot; is defined as the maximum number of corridors<br/>you must traverse to get from one chamber to another (without repeating the corridor).<br/>This route may or may not pass through the main entry chamber.<br/></p><p id="1a858fd8-d211-80fc-a276-de94ec0a10a5" class="">Your task is to compute the length of longest secret route between<br/>two chambers which is represented by the number of corridors between them.<br/></p><p id="1a858fd8-d211-8046-81f1-c0416b89f4dd" class="">Example 1<br/>input=<br/>1 2 3 4 5<br/>output=<br/>3<br/></p><p id="1a858fd8-d211-80ea-bfac-e39d49db9aa9" class="">Structure:<br/>1<br/>/ \<br/>2   3<br/>/ \<br/>4   5<br/></p><p id="1a858fd8-d211-80c9-9b4f-d0947628a699" class="">Explanation:<br/>The longest secret route from chamber 4 to chamber 3<br/>(alternatively, from chamber 5 to chamber 3) along the route:<br/>4 → 2 → 1 → 3<br/>This path has 3 corridors (4–2, 2–1, 1–3), so the length is 3.<br/></p><p id="1a858fd8-d211-802f-9cdb-fe597858b20d" class="">Example 2:<br/>input=<br/>1 -1 2 3 4<br/>output=<br/>2<br/></p><p id="1a858fd8-d211-8036-b3a9-e7aadd7431a0" class="">Structure:<br/>1<br/>\<br/>2<br/>/ \<br/>3   4<br/>/\<br/></p><p id="1a858fd8-d211-80b4-80e1-d16d0511f8ab" class="">Explanation:<br/>The longest secret route from chamber 3 to chamber 4<br/>(alternatively, from chamber 1 to chamber 4) along the route:<br/>3 → 2 → 4<br/>This path has 2 corridors (3–2, 2–4), so the length is 2.<br/></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a858fd8-d211-80df-bcdc-ea9c0d150e65" class="code"><code class="language-Java">import java.util.*;
+
+class Tree{
+    int data;
+    Tree left=null;
+    Tree right=null;
+    Tree(int data) {this.data=data;}
+}
+
+class Solution{
+    static int ans=0;
+    static Tree buildTree(int[] arr) {
+        if (arr.length == 0) return null;
+        
+        Tree root = new Tree(arr[0]);
+        Queue&lt;Tree&gt; q = new LinkedList&lt;&gt;();
+        q.add(root);
+        
+        int ind = 1;
+        while (!q.isEmpty() &amp;&amp; ind &lt; arr.length) {
+            Tree node = q.poll();
+            
+            if (ind &lt; arr.length &amp;&amp; arr[ind] != -1) {
+                node.left = new Tree(arr[ind]);
+                q.add(node.left);
+            }
+            ind++;
+            
+            if (ind &lt; arr.length &amp;&amp; arr[ind] != -1) {
+                node.right = new Tree(arr[ind]);
+                q.add(node.right);
+            }
+            ind++;
+        }
+        return root;
+    }
+   
+    static int solve(Tree root)
+    {
+        if(root==null) return 0;
+        int lh=solve(root.left);
+        int rh=solve(root.right);
+        ans=Math.max(lh+rh,ans);
+        return Math.max(lh,rh)+1;
+        
+    }
+
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String[] s = sc.nextLine().split(&quot; &quot;);
+        int arr[] = new int[s.length];
+        
+        for (int i = 0; i &lt; s.length; i++) arr[i] = Integer.parseInt(s[i]);
+        
+        Tree root = buildTree(arr);
+        
+        
+        solve(root);
+        System.out.println(ans);
+        
+        
+    }
+}
+</code></pre><h2 id="1a858fd8-d211-80a1-9a76-e300580f7bdf" class="">Program18</h2><p id="1a858fd8-d211-8056-8273-d35dac489ca0" class="">Imagine you&#x27;re an archivist in the ancient Kingdom of Numeria, tasked with<br/>recording the royal lineage on a sacred scroll. Every monarch is identified<br/>by a unique number, and the family tree unfolds in a very specific way.<br/>Your mission is to transcribe this dynasty using a method that adheres<br/>to the following customs:<br/></p><p id="1a858fd8-d211-8065-a496-dead144e6fde" class="">Royal Inscription:</p><ul id="1a858fd8-d211-80c6-abc6-db71f7f4e553" class="bulleted-list"><li style="list-style-type:disc">Each monarch’s unique number is written as their signature on the scroll.</li></ul><p id="1a858fd8-d211-8026-b0e2-c33ed0660b51" class="">Enclosing Descendants:</p><ul id="1a858fd8-d211-80f4-9370-fcd20f90e0be" class="bulleted-list"><li style="list-style-type:disc">If a monarch has offspring, their descendants must be recorded inside parentheses<br/>immediately following the monarch’s number.<br/><ul id="1a858fd8-d211-804f-b133-da2620e6b62c" class="bulleted-list"><li style="list-style-type:circle">The first-born (or primary heir) is enclosed in its own set of parentheses.</li></ul><ul id="1a858fd8-d211-8056-9fd0-d43ebf3efbad" class="bulleted-list"><li style="list-style-type:circle">If there is a second-born, their number is similarly enclosed, following<br/>the first-born’s parentheses.<br/></li></ul></li></ul><p id="1a858fd8-d211-807f-9a70-cb117f24315e" class="">Omitting Redundant Markings:</p><ul id="1a858fd8-d211-8001-9149-d4d57c932ce8" class="bulleted-list"><li style="list-style-type:disc">Empty pairs of parentheses are generally left off the scroll to keep the record neat.</li></ul><ul id="1a858fd8-d211-80fc-b330-cf9d291b75b1" class="bulleted-list"><li style="list-style-type:disc">However, if a monarch has a second-born but first-born is no more, you must include<br/>an empty pair of parentheses to clearly mark the absence of a primary heir—ensuring<br/>the lineage is accurately mapped.<br/></li></ul><p id="1a858fd8-d211-80f4-8f27-cb0b4e4a64cf" class="">Your task is to create such an inscription that perfectly reflects the<br/>hierarchical structure of the royal lineage.<br/></p><p id="1a858fd8-d211-809f-acaf-d54339cc8089" class="">Example 1:<br/>Input=<br/>1 2 3 4<br/>Output=<br/>1(2(4))(3)<br/></p><p id="1a858fd8-d211-80e7-b8b8-e893fea051a5" class="">Explanation:<br/>1<br/>/ \<br/>2   3<br/>/<br/></p><p id="1a858fd8-d211-8007-b583-cc9d564a545b" class="">4</p><ul id="1a858fd8-d211-80df-8e68-e79fe684e8ee" class="bulleted-list"><li style="list-style-type:disc">Monarch 1 is the founding ruler. He has two heirs: Monarch 2 (first-born) and<br/>Monarch 3 (second-born).<br/></li></ul><ul id="1a858fd8-d211-80c3-bcbc-f67021f08d12" class="bulleted-list"><li style="list-style-type:disc">Monarch 2 has a single descendant, Monarch 4, recorded as his first-born.</li></ul><ul id="1a858fd8-d211-8002-819b-c6d676ead20f" class="bulleted-list"><li style="list-style-type:disc">Since empty markings for non-existent descendants are omitted (because they<br/>don&#x27;t add any information), the inscription is kept concise.<br/></li></ul><ul id="1a858fd8-d211-802e-907e-e0b7b4afe623" class="bulleted-list"><li style="list-style-type:disc">Thus, the final transcription on the sacred scroll is: &quot;1(2(4))(3)&quot;</li></ul><p id="1a858fd8-d211-8095-b8cd-de36c6131cc7" class="">Example 2:<br/>Input=<br/>1 2 3 -1 4<br/>Output=<br/>1(2()(4))(3)<br/></p><p id="1a858fd8-d211-80e9-8349-f3a4d030d102" class="">Explanation:<br/>1<br/>/ \<br/>2   3<br/>\<br/>4<br/></p><ul id="1a858fd8-d211-8006-929f-c603976b84f7" class="bulleted-list"><li style="list-style-type:disc">Monarch 1 is the founding ruler with two heirs: Monarch 2 and Monarch 3.</li></ul><ul id="1a858fd8-d211-8066-ae95-e7ca2123848e" class="bulleted-list"><li style="list-style-type:disc">In this dynasty, Monarch 2 first-born is no more alive but does have a younger<br/>descendant, Monarch 4.<br/></li></ul><ul id="1a858fd8-d211-80d0-ba1d-ee9302d583c7" class="bulleted-list"><li style="list-style-type:disc">To ensure the record accurately reflects the gap in succession for Monarch 2,<br/>an empty pair of parentheses is added before representing Monarch 4.<br/>This explicitly marks the absence of a first-born heir.<br/></li></ul><ul id="1a858fd8-d211-8062-a2a9-f217acfc6813" class="bulleted-list"><li style="list-style-type:disc">Therefore, the recorded inscription becomes: &quot;1(2()(4))(3)&quot;</li></ul><p id="1a858fd8-d211-80f3-bfda-d81123e12ce3" class="">Example 3:<br/>input=<br/>1 2 3 4 -1 5 6 -1 7<br/>output=<br/>1(2(4()(7)))(3(5)(6))<br/></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a858fd8-d211-8044-b1f4-f0e4cc51ed70" class="code"><code class="language-Java">import java.util.*;
+
+class Tree{
+    int data;
+    Tree left=null;
+    Tree right=null;
+    Tree(int data) {this.data=data;}
+}
+
+class Solution{
+    static Tree buildTree(int[] arr) {
+        if (arr.length == 0) return null;
+        
+        Tree root = new Tree(arr[0]);
+        Queue&lt;Tree&gt; q = new LinkedList&lt;&gt;();
+        q.add(root);
+        
+        int ind = 1;
+        while (!q.isEmpty() &amp;&amp; ind &lt; arr.length) {
+            Tree node = q.poll();
+            
+            if (ind &lt; arr.length &amp;&amp; arr[ind] != -1) {
+                node.left = new Tree(arr[ind]);
+                q.add(node.left);
+            }
+            ind++;
+            
+            if (ind &lt; arr.length &amp;&amp; arr[ind] != -1) {
+                node.right = new Tree(arr[ind]);
+                q.add(node.right);
+            }
+            ind++;
+        }
+        return root;
+    }
+    
+    static void convert(Tree root,StringBuilder s){
+       if(root==null) return;
+       s.append(root.data);
+       if(root.left==null &amp;&amp; root.right==null) return;
+       if(root.left==null &amp;&amp; root.right!=null)
+       {
+           s.append(&quot;()&quot;);
+           s.append(&quot;(&quot;);
+           convert(root.right,s);
+           s.append(&quot;)&quot;);
+           return;
+       }
+       if(root.left!=null &amp;&amp; root.right==null)
+       {
+           s.append(&quot;(&quot;);
+           convert(root.left,s);
+           s.append(&quot;)&quot;);
+           return;
+       }
+       s.append(&quot;(&quot;);
+       convert(root.left,s);
+       s.append(&quot;)&quot;);
+       s.append(&quot;(&quot;);
+       convert(root.right,s);
+       s.append(&quot;)&quot;);
+    }
+
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String[] s = sc.nextLine().split(&quot; &quot;);
+        int arr[] = new int[s.length];
+        
+        for (int i = 0; i &lt; s.length; i++) arr[i] = Integer.parseInt(s[i]);
+        
+        Tree root = buildTree(arr);
+        StringBuilder si = new StringBuilder();
+        convert(root,si);
+        System.out.print(si.toString());
+        
+        
+    }
+}
+</code></pre><h2 id="1a858fd8-d211-80fe-a8ed-cc97322836d4" class="">Program19</h2><p id="1a858fd8-d211-8027-8e3e-fda65221cbb9" class="">A shipping company is managing two cargo ships: a large cargo ship and<br/>a smaller cargo ship. The company has divided the large cargo ship into<br/>X compartments and the smaller cargo ship into Y compartments, where X &gt; Y.<br/></p><p id="1a858fd8-d211-808d-8dc5-c6af689ca9f5" class="">Each compartment in both ships is loaded with a specific amount of cargo.<br/>The company needs to relocate cargo from the large cargo ship to the smaller<br/>cargo ship by selecting Y compartments from the large ship and transferring<br/>their cargo to Y compartments in the smaller ship, maintaining the respective order.<br/></p><p id="1a858fd8-d211-80b6-8a2a-de9019881fdf" class="">However, due to weight balance regulations, the amount in compartment n+1<br/>should always be greater than or equal to that in the compartment n of the smaller<br/>cargo ship, after the transferred from the large cargo ship.<br/></p><p id="1a858fd8-d211-80b2-9160-f1089d85ee46" class="">Your task is to help the company determine the number of ways they can transfer<br/>the cargo while satisfying these regulations.<br/></p><h2 id="1a858fd8-d211-80cd-8b73-fefe36b6bb45" class="">Input Format:</h2><p id="1a858fd8-d211-805c-9a09-c8ddb56bb494" class="">Number of compartments in the large cargo ship (X).<br/>Number of compartments in the smaller cargo ship (Y).<br/>Cargo weights in compartments of the large cargo ship.<br/>Cargo weights in compartments of the smaller cargo ship.<br/></p><h2 id="1a858fd8-d211-803d-8732-c8280097a523" class="">Output Format:</h2><p id="1a858fd8-d211-80d9-b255-e4ff0278cf5e" class="">Return the number of valid ways to transfer the cargo.</p><h2 id="1a858fd8-d211-80f3-b4d3-d69fc74aeb01" class="">Sample Input:</h2><p id="1a858fd8-d211-806d-8ccd-cd05db55306c" class="">5<br/>3<br/>1 5 2 4 7<br/>7 8 6<br/></p><h2 id="1a858fd8-d211-8075-b766-c14ed32866bc" class="">Sample Output:</h2><p id="1a858fd8-d211-80cb-bdaf-c6b6b2fdbbb4" class="">4</p><h2 id="1a858fd8-d211-802c-8c5a-ee6d193ec479" class="">Explanation:</h2><p id="1a858fd8-d211-80b0-a038-c76a9562ee2e" class="">The compartments from the large cargo ship can be selected as:</p><ul id="1a858fd8-d211-80f0-bc9b-fb9aba58124c" class="bulleted-list"><li style="list-style-type:disc">(1, 2, 7)</li></ul><ul id="1a858fd8-d211-806b-b8d9-feea414a7a7f" class="bulleted-list"><li style="list-style-type:disc">(1, 4, 7)</li></ul><ul id="1a858fd8-d211-80be-8c62-e021f6ed4c1a" class="bulleted-list"><li style="list-style-type:disc">(5, 4, 7)</li></ul><ul id="1a858fd8-d211-808d-8d55-d6e72f3be9e9" class="bulleted-list"><li style="list-style-type:disc">(2, 4, 7)<br/>Thus, there are 4 valid ways to transfer the cargo.<br/></li></ul><h2 id="1a858fd8-d211-800c-8551-d4ac0139d5d4" class="">Sample Input:</h2><p id="1a858fd8-d211-808f-9c35-c6b81df6809a" class="">4<br/>2<br/>7 7 7 7<br/>3 4<br/></p><h2 id="1a858fd8-d211-80cc-9f42-db6c96ba17f5" class="">Sample Output:</h2><p id="1a858fd8-d211-80f5-87ac-e053f0c4caf7" class="">6</p><h2 id="1a858fd8-d211-8003-9152-f0c7d441835a" class="">Explanation:</h2><p id="1a858fd8-d211-806a-a52c-e1091e8cf486" class="">The compartments from the large cargo ship can be selected as:</p><ul id="1a858fd8-d211-809c-8d8a-e6010c9f55b4" class="bulleted-list"><li style="list-style-type:disc">(1st, 2nd) (7,7)</li></ul><ul id="1a858fd8-d211-80d5-a110-de990f05fc1b" class="bulleted-list"><li style="list-style-type:disc">(1st, 3rd) (7,7)</li></ul><ul id="1a858fd8-d211-806d-8bf4-fe7b4b20a9ea" class="bulleted-list"><li style="list-style-type:disc">(1st, 4th) (7,7)</li></ul><ul id="1a858fd8-d211-80d3-b8e8-edb5245e2325" class="bulleted-list"><li style="list-style-type:disc">(2nd, 3rd) (7,7)</li></ul><ul id="1a858fd8-d211-809b-96bc-cec97423afbc" class="bulleted-list"><li style="list-style-type:disc">(2nd, 4th) (7,7)</li></ul><ul id="1a858fd8-d211-80f9-a741-d9f38efb943f" class="bulleted-list"><li style="list-style-type:disc">(3rd, 4th) (7,7)</li></ul><p id="1a858fd8-d211-804b-b659-e5aa7a342a47" class="">Thus, there are 6 valid ways to transfer the cargo.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a858fd8-d211-801f-ab75-e00a5402256d" class="code"><code class="language-Java">import java.util.*;
+
+class Solution{
+    
+    static int ans=0;
+    static void calc(int[] lg, int y, int x,int prev,int ind,int ind2,int[] sm)
+    {
+        if(ind2==y)
+        {
+            ans++;
+            return;
+        }
+        for(int i=ind;i&lt;x;i++)
+        {
+            if(sm[ind2]+lg[i]&gt;=prev)
+            {
+                calc(lg,y,x,lg[i]+sm[ind2],i+1,ind2+1,sm);
+            }
+        }
+        
+        
+    }
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int x=sc.nextInt();
+        int y=sc.nextInt();
+        int[] lg = new int[x];
+        int[] sm = new int[y];
+        for(int i=0;i&lt;x;i++) lg[i]=sc.nextInt();
+        for(int j=0;j&lt;y;j++) sm[j]=sc.nextInt();
+ 
+        calc(lg,y,x,0,0,0,sm);
+        
+        System.out.println(ans);
+    }
+}
+
+
 </code></pre></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1133,4 +1133,39 @@ class Solution{
         
         System.out.print(solve(n,k,m,p));
     }
+}</code></pre><h2 id="1a858fd8-d211-802d-bcdc-cabb616b871c" class="">Program11 - UniqueFlowers</h2><p id="1a858fd8-d211-8006-9e99-fc87b9e993ac" class="">Imagine you&#x27;re a botanist managing a long row of garden plots. Each plot is<br/>planted with a flower that has a unique color code represented by an integer.<br/>You are given an array garden of length n, where each element denotes the color<br/>of the flower in that plot, and an integer k which indicates the number of<br/>consecutive plots you will examine at a time. Your objective is to determine<br/>how many different flower colors appear in every contiguous block of k plots.<br/></p><p id="1a858fd8-d211-80e3-af7e-e1e178293718" class="">Return an array result where result[i] is the count of unique flower colors in<br/>the section of the garden from plot i to plot i + k - 1.<br/></p><p id="1a858fd8-d211-8055-a570-de80ebbad489" class="">Example 1:</p><p id="1a858fd8-d211-80f9-aa59-eddaf6197513" class="">Input:<br/>7				\\n<br/>1 2 3 2 2 1 3	\\array garden<br/>3				\\k<br/></p><p id="1a858fd8-d211-8067-ad3f-d627e14c32f7" class="">Output:<br/>[3, 2, 2, 2, 3]<br/></p><p id="1a858fd8-d211-80f9-bc3b-f273d15f2277" class="">Explanation:</p><p id="1a858fd8-d211-80dd-9a39-c886b6428b86" class="">For plots 0 to 2: [1,2,3] → 3 unique colors<br/>For plots 1 to 3: [2,3,2] → 2 unique colors<br/>For plots 2 to 4: [3,2,2] → 2 unique colors<br/>For plots 3 to 5: [2,2,1] → 2 unique colors<br/>For plots 4 to 6: [2,1,3] → 3 unique colors<br/>Example 2:<br/></p><p id="1a858fd8-d211-80cd-b3a6-c99acd77e52e" class="">Input:<br/>7<br/>1 1 1 1 2 3 4<br/>4<br/></p><p id="1a858fd8-d211-8032-bbb2-c8a30bdb0406" class="">Output:<br/>[1, 2, 3, 4]<br/></p><p id="1a858fd8-d211-80a9-8705-c94e34f98184" class="">Explanation:<br/>For plots 0 to 3: [1,1,1,1] → 1 unique color<br/>For plots 1 to 4: [1,1,1,2] → 2 unique colors<br/>For plots 2 to 5: [1,1,2,3] → 3 unique colors<br/>For plots 3 to 6: [1,2,3,4] → 4 unique colors<br/></p><p id="1a858fd8-d211-8005-86a0-cf0265e31e57" class="">Constraints:<br/>• 1 &lt;= k &lt;= garden.length &lt;= 10^5<br/>• 1 &lt;= garden[i] &lt;= 10^5<br/></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a858fd8-d211-809a-9947-ebe1f355e6b1" class="code"><code class="language-Java">import java.util.*;
+
+class Solution{
+    static void getUnique(int[] arr, List&lt;Integer&gt; l,int k)
+    {
+        HashMap&lt;Integer,Integer&gt; map = new HashMap&lt;&gt;();
+        for(int i=0;i&lt;k;i++)
+        {
+            map.put(arr[i],map.getOrDefault(arr[i],0)+1);
+        }
+        l.add(map.size());
+        for(int i=k;i&lt;arr.length;i++)
+        {
+            if(map.get(arr[i-k])==1)
+            {
+                map.remove(arr[i-k]);
+            }
+            else
+            {
+                map.put(arr[i-k],map.getOrDefault(arr[i-k],0)-1);
+            }
+            map.put(arr[i],map.getOrDefault(arr[i],0)+1);
+            l.add(map.size());
+        }
+    }
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt();
+        int arr[] = new int[n];
+        for(int i=0;i&lt;n;i++) arr[i]=sc.nextInt();
+        int k=sc.nextInt();
+        List&lt;Integer&gt; l = new ArrayList&lt;&gt;();
+        getUnique(arr,l,k);
+        System.out.print(l);
+    }
 }</code></pre></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

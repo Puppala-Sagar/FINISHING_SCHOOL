@@ -903,4 +903,126 @@ public class Solution {
     }
 }
 
+</code></pre><h2 id="1ad58fd8-d211-8025-a1df-d4399f4c7db6" class="">Program4</h2><p id="1ad58fd8-d211-80f3-9b47-f7995c0d259d" class="">There are N computers in a network, all the computers are connected as tree<br/>structure. And one new connection is added in the Network. The computers in<br/>the network are identified with their IDs, the IDs are numbered between 1 to N.<br/></p><p id="1ad58fd8-d211-80ee-ad3c-de8b5f9a6f45" class="">The connections in the network is given as coonection[i] = [comp-A, comp-B],<br/>there is a connection between comp-A and comp-B.<br/></p><p id="1ad58fd8-d211-809d-b9a2-d9a6eef4c34d" class="">Your task is to remove a connection in the network and print it, so that<br/>all the computers are connected as tree structure. If there are multiple<br/>options to remove, remove the connection that occurs last in the input.<br/></p><h2 id="1ad58fd8-d211-8058-b848-e741f8fb5d6a" class="">Input Format:</h2><p id="1ad58fd8-d211-808a-920c-f5809e1cbfe8" class="">Line-1: Two space separated integers N, number of computers.<br/>Next N lines: Two space separated integers, comp-A &amp; comp-B.<br/></p><h2 id="1ad58fd8-d211-802e-94c6-d664292c5ada" class="">Output Format:</h2><p id="1ad58fd8-d211-80e1-83b1-dab92d5b2dcc" class="">Print the connection which is removed.</p><h2 id="1ad58fd8-d211-80b9-83d5-dcdaeb935d10" class="">Sample Input-1:</h2><p id="1ad58fd8-d211-8011-82e7-d4ec04388be3" class="">6<br/>1 2<br/>3 4<br/>3 6<br/>4 5<br/>5 6<br/>2 3<br/></p><h2 id="1ad58fd8-d211-80c9-bc39-e97456ac8f09" class="">Sample Output-1:</h2><p id="1ad58fd8-d211-80c1-a62c-d55ef65e2263" class="">5 6</p><h2 id="1ad58fd8-d211-80d7-b9ca-d131c6cdfc58" class="">Sample Input-2:</h2><p id="1ad58fd8-d211-80da-82b6-f7c41e28ff7e" class="">4<br/>1 2<br/>2 3<br/>3 4<br/>2 4<br/></p><h2 id="1ad58fd8-d211-8057-bef8-de089d55c1f5" class="">Sample Output-2:</h2><p id="1ad58fd8-d211-80ce-b265-d634ebf3539e" class="">2 4</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1ad58fd8-d211-8045-80cb-ca854cdcfc22" class="code"><code class="language-Java">import java.util.Scanner;
+
+
+public class Solution {
+    static int[] parent ;
+    static int[] rank ;
+    static int find(int ch) {
+        if (parent[ch] != ch) {
+            parent[ch] = find(parent[ch]); 
+        }
+        return parent[ch];
+    }
+
+    static boolean union(int a, int b) {
+        int rootA = find(a);
+        int rootB = find(b);
+        if(rootA==rootB) return true;
+        if (rootA &lt; rootB) {
+            parent[rootB] = rootA;
+        } else if(rootA&gt;rootB) {
+            parent[rootA] = rootB;
+        } else{
+            parent[rootB] = rootA;
+            rank[rootA]++;
+        }
+        return false;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt();
+        int arr[][] = new int[n][2];
+        
+        parent=new int[n+1];
+        rank=new int[n];
+        
+        for(int i=0;i&lt;=n;i++) parent[i]=i;
+        
+        for(int i=0;i&lt;n;i++)
+        {
+            arr[i][0]=sc.nextInt();
+            arr[i][1]=sc.nextInt();
+        }
+        int x=0;
+        int y=0;
+        
+        for(int i=0;i&lt;n;i++)
+        {
+            if(union(arr[i][0],arr[i][1])) {x=arr[i][0];y=arr[i][1];} 
+        }
+        
+        System.out.println(&quot;[&quot;+x+&quot;,&quot;+y+&quot;]&quot;);
+        
+    }
+}
+
+</code></pre><h2 id="1ad58fd8-d211-80cb-8061-cc0d1decd764" class="">Program5(All friends)</h2><p id="1ad58fd8-d211-80ec-a0f8-e43bdbf79939" class="">There are N people in a private party. Initially all are strangers to each other,<br/>and the people are identified by unique ID from 0 to N-1.<br/></p><p id="1ad58fd8-d211-8055-84d2-d1d55190ded4" class="">In the party, whenever two persons (person-A and person-B) become friends, they<br/>took a photo. Each of the photo has some information, photos[i]=[T-i, P-j,P-k],<br/>here T-i indicates time of the photo taken, P-j person with ID &#x27;j&#x27;, and<br/>P-k indicates person with ID &#x27;k&#x27;.<br/></p><p id="1ad58fd8-d211-806e-aa74-cedf97dfc0c3" class="">Friendship is symmetric[i.e., If P-j is friend of P-k, then P-k is a friend of P-j].<br/>Additionally, if person-A is &quot;a friend of person-B OR a friend of someone who is<br/>friend of person-B&quot;, then person-A is friend of person-B.<br/></p><p id="1ad58fd8-d211-80ff-b90b-fd9ddde5a0ca" class="">You are given L photos information, Your task is to find the earliest time<br/>for which every person became friend with every other person in the party.<br/>If there is no such earliest time, return -1.<br/></p><h2 id="1ad58fd8-d211-8042-8b16-e7d78f0b508a" class="">Input Format:</h2><p id="1ad58fd8-d211-8020-b048-f65768bc76a8" class="">Line-1: Two space separated integers, N and L.<br/>Next L lines: Three space separated integers, log[i], 0&lt;=i&lt;L.<br/></p><h2 id="1ad58fd8-d211-8048-ac6e-d59bdfad409e" class="">Output Format:</h2><p id="1ad58fd8-d211-806b-a82f-e469376201c9" class="">Print an integer result.</p><h2 id="1ad58fd8-d211-807c-84a5-e81b552352bd" class="">Sample Input-1:</h2><p id="1ad58fd8-d211-80c7-8223-c01c2441b3dc" class="">6 8<br/>5 0 1<br/>7 3 4<br/>12 2 3<br/>21 1 5<br/>34 2 4<br/>37 0 3<br/>42 1 2<br/>93 4 5<br/></p><h2 id="1ad58fd8-d211-8096-9db6-f54f16900844" class="">Sample Output-1:</h2><p id="1ad58fd8-d211-8008-bba2-da6e320ed0f6" class="">37</p><h2 id="1ad58fd8-d211-8011-8493-ef9f5be8e52e" class="">Sample Input-2:</h2><p id="1ad58fd8-d211-80ca-b6cf-d251f97e53ea" class="">7 6<br/>2 0 3<br/>5 1 5<br/>8 2 5<br/>7 3 6<br/>9 4 6<br/>6 4 5<br/></p><h2 id="1ad58fd8-d211-8099-81ed-e3bd5366cf1b" class="">Sample Output-2:</h2><p id="1ad58fd8-d211-800f-8126-eaca4820653c" class="">9</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1ad58fd8-d211-80e0-9e59-f2f8d2b8f89b" class="code"><code class="language-Java">import java.util.*;
+
+public class Solution {
+    static int[] parent ;
+    static int[] rank ;
+    static int find(int ch) {
+        if (parent[ch] != ch) {
+            parent[ch] = find(parent[ch]); 
+        }
+        return parent[ch];
+    }
+    
+    static int time;
+    static void union(int a, int b) {
+        int rootA = find(a);
+        int rootB = find(b);
+        if (rootA &lt; rootB) {
+            parent[rootB] = rootA;
+        } else if(rootA&gt;rootB) {
+            parent[rootA] = rootB;
+        } else{
+            parent[rootB] = rootA;
+            rank[rootA]++;
+        }
+            }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt();
+        int m=sc.nextInt();
+        
+        int arr[][] = new int[m][3];
+        
+        parent=new int[n];
+        rank=new int[n];
+        
+        for(int i=0;i&lt;n;i++) parent[i]=i;
+        
+        
+        for(int i=0;i&lt;m;i++)
+        {
+            arr[i][0]=sc.nextInt();
+            arr[i][1]=sc.nextInt();
+            arr[i][2]=sc.nextInt();
+        }
+        
+        Arrays.sort(arr,(a,b)-&gt;(a[0]-b[0]));
+        
+        time=Integer.MAX_VALUE;
+        for(int i=0;i&lt;m;i++)
+        {
+            union(arr[i][1],arr[i][2]);
+	    HashSet&lt;Integer&gt; s = new HashSet&lt;&gt;();
+        
+            for(int i=0;i&lt;parent.length;i++)
+            {
+            	s.add(find(i));
+            }
+            if(s.size()==1) {time=arr[i][0];break;}
+
+        }
+        
+        System.out.println(time==Integer.MAX_VALUE?-1:time);
+        
+    }
+}
 </code></pre></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

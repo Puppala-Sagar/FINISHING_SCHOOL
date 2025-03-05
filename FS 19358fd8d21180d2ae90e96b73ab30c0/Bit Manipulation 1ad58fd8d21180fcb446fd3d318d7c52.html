@@ -1,4 +1,4 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>FS</title><style>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Bit Manipulation</title><style>
 /* cspell:disable-file */
 /* webkit printing magic: print all background colors */
 html {
@@ -681,4 +681,95 @@ blockquote {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="19358fd8-d211-80d2-ae90-e96b73ab30c0" class="page sans"><header><h1 class="page-title">FS</h1><p class="page-description"></p></header><div class="page-body"><figure id="19358fd8-d211-80bb-a403-c7807b8b59a6" class="link-to-page"><a href="FS%2019358fd8d21180d2ae90e96b73ab30c0/SLIDING%20WINDOW%2019358fd8d21180bba403c7807b8b59a6.html">SLIDING WINDOW</a></figure><figure id="19358fd8-d211-805f-a38c-dae93d86f87a" class="link-to-page"><a href="FS%2019358fd8d21180d2ae90e96b73ab30c0/TREES%2019358fd8d211805fa38cdae93d86f87a.html">TREES</a></figure><figure id="1a058fd8-d211-808e-843d-ddb171067a32" class="link-to-page"><a href="FS%2019358fd8d21180d2ae90e96b73ab30c0/Backtracking%201a058fd8d211808e843dddb171067a32.html">Backtracking</a></figure><figure id="1a058fd8-d211-807e-b3e6-ccdcaecb19e5" class="link-to-page"><a href="FS%2019358fd8d21180d2ae90e96b73ab30c0/Networks%201a058fd8d211807eb3e6ccdcaecb19e5.html">Networks</a></figure><figure id="1a758fd8-d211-806e-8987-deff12063680" class="link-to-page"><a href="FS%2019358fd8d21180d2ae90e96b73ab30c0/CNN%201a758fd8d211806e8987deff12063680.html">CNN</a></figure><figure id="1a858fd8-d211-80d0-a2a8-ea1b3b5623fa" class="link-to-page"><a href="FS%2019358fd8d21180d2ae90e96b73ab30c0/Queries%201a858fd8d21180d0a2a8ea1b3b5623fa.html">Queries</a></figure><figure id="1a858fd8-d211-80ad-9292-ffce18a98a29" class="link-to-page"><a href="FS%2019358fd8d21180d2ae90e96b73ab30c0/Two%20Pointers%201a858fd8d21180ad9292ffce18a98a29.html">Two Pointers</a></figure><figure id="1ac58fd8-d211-8095-9f40-c3adbdb78905" class="link-to-page"><a href="FS%2019358fd8d21180d2ae90e96b73ab30c0/DISJOIN%20SET%20AND%20&amp;%20UNION%201ac58fd8d21180959f40c3adbdb78905.html">DISJOIN SET AND &amp; UNION</a></figure><figure id="1ad58fd8-d211-80fc-b446-fd3d318d7c52" class="link-to-page"><a href="FS%2019358fd8d21180d2ae90e96b73ab30c0/Bit%20Manipulation%201ad58fd8d21180fcb446fd3d318d7c52.html">Bit Manipulation</a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style></head><body><article id="1ad58fd8-d211-80fc-b446-fd3d318d7c52" class="page sans"><header><h1 class="page-title">Bit Manipulation</h1><p class="page-description"></p></header><div class="page-body"><h2 id="1ad58fd8-d211-80d3-a547-cbb038caaeaf" class="">Program1(toggling lights)</h2><p id="1ad58fd8-d211-8066-85de-e113d9cdbe49" class="">A grid of light bulbs is given, represented as a matrix of size rows x cols,<br/>where each cell contains either 0 (off) or 1 (on).<br/></p><p id="1ad58fd8-d211-80af-b345-e36b2b986c51" class="">Your task is to turn all the light bulbs off (0) by following the toggle rule:<br/>- In each step, you can choose either an entire row or an entire column<br/>and toggle all its elements (change 0 to 1 and 1 to 0).<br/></p><p id="1ad58fd8-d211-802f-b282-f37e2ed743f0" class="">At the end, if all light bulbs are turned off, print true, otherwise print false.</p><h2 id="1ad58fd8-d211-8001-bd20-efdfcc24a65c" class="">Input Format</h2><p id="1ad58fd8-d211-807e-bd79-e8acc4b7deac" class="">Line-1: Read two integers rows and cols(space separated).<br/>Line-2: Read the matrix of dimension rows X cols.<br/></p><h2 id="1ad58fd8-d211-80dc-a5bb-ca1ff0a54ddc" class="">Output Format</h2><p id="1ad58fd8-d211-801a-b992-d8e4e7f978f4" class="">Print a boolean result.</p><h2 id="1ad58fd8-d211-8079-af9e-fa3a4a196bcb" class="">Sample input-1:</h2><p id="1ad58fd8-d211-8082-a839-f8db3ddaf840" class="">5 5<br/>0 0 1 0 0<br/>0 0 1 0 0<br/>1 1 0 1 1<br/>0 0 1 0 0<br/>0 0 1 0 0<br/></p><h2 id="1ad58fd8-d211-802b-b490-c79574577591" class="">Sample output-1:</h2><p id="1ad58fd8-d211-80c1-81a4-c6ef1a719eb4" class="">true</p><h2 id="1ad58fd8-d211-8061-a6a5-caed5198df42" class="">Explanation:</h2><p id="1ad58fd8-d211-80a1-9a4b-faaf79d0e295" class="">0 0 1 0 0          0 0 1 0 0           0 0 0 0 0<br/>0 0 1 0 0   row-3  0 0 1 0 0   cols-3  0 0 0 0 0<br/>1 1 0 1 1   ---&gt;   0 0 1 0 0   ---&gt;    0 0 0 0 0<br/>0 0 1 0 0          0 0 1 0 0           0 0 0 0 0<br/>0 0 1 0 0          0 0 1 0 0           0 0 0 0 0<br/></p><h2 id="1ad58fd8-d211-80b5-bf60-e0273cac844f" class="">Sample input-2</h2><p id="1ad58fd8-d211-8086-a32a-e7deaa463490" class="">2 2<br/>1 1<br/>0 1<br/></p><h2 id="1ad58fd8-d211-8008-bec5-e555040a0beb" class="">Sample output-2</h2><p id="1ad58fd8-d211-809f-a7a9-c09af7e79389" class="">false</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1ad58fd8-d211-80c5-bfb0-e3ecab2e7ac6" class="code"><code class="language-Java">// APPROACH 1 using bit manipulation
+
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        int rows = sc.nextInt();
+        int cols = sc.nextInt();
+        int[][] matrix = new int[rows][cols];
+        
+        for (int i = 0; i &lt; rows; i++) {
+            for (int j = 0; j &lt; cols; j++) {
+                matrix[i][j] = sc.nextInt();
+            }
+        }
+        
+        boolean possible = true;
+        
+        for (int i = 1; i &lt; rows; i++) {
+            int c = matrix[i][0] ^ matrix[0][0];
+            for (int j = 0; j &lt; cols; j++) {
+                if (matrix[i][j] != (matrix[0][j] ^ c)) {
+                    possible = false;
+                    break;
+                    
+                }
+            }
+            if (!possible) break;
+        }
+        
+        System.out.println(possible);
+    }
+}</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1ad58fd8-d211-8072-8230-d7fb645056d2" class="code"><code class="language-Java">// Approach 2 using matrix
+
+import java.util.*;
+
+class Solution {
+    
+    static void toggleRow(int[][] arr, int row, int cols) {
+        for (int i = 0; i &lt; cols; i++) {
+            arr[row][i] = (arr[row][i] == 1) ? 0 : 1;
+        }
+    }
+
+    static void toggleColumn(int[][] arr, int col, int rows) {
+        for (int i = 0; i &lt; rows; i++) {
+            arr[i][col] = (arr[i][col] == 1) ? 0 : 1;
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        int[][] arr = new int[n][m];
+
+        for (int i = 0; i &lt; n; i++) {
+            for (int j = 0; j &lt; m; j++) {
+                arr[i][j] = sc.nextInt();
+            }
+        }
+
+        for (int i = 0; i &lt; n; i++) {
+            int c = 0;
+            for (int j = 0; j &lt; m; j++) {
+                if (arr[i][j] == 1) 
+                toggleRow(arr, i, m);
+            }
+        }
+
+        for (int i = 0; i &lt; m; i++) {
+            int c = 0;
+            for (int j = 0; j &lt; n; j++) {
+                if (arr[j][i] == 1)  
+                toggleColumn(arr, i, n);
+            }
+            
+        }
+
+        for (int i = 0; i &lt; n; i++) {
+            for (int j = 0; j &lt; m; j++) {
+                if (arr[i][j] == 1) {
+                    System.out.println(false);
+                    return;
+                }
+            }
+        }
+        System.out.println(true);
+    }
+}</code></pre></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

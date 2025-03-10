@@ -1,4 +1,4 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>FS</title><style>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>BST</title><style>
 /* cspell:disable-file */
 /* webkit printing magic: print all background colors */
 html {
@@ -681,4 +681,87 @@ blockquote {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="19358fd8-d211-80d2-ae90-e96b73ab30c0" class="page sans"><header><h1 class="page-title">FS</h1><p class="page-description"></p></header><div class="page-body"><figure id="19358fd8-d211-80bb-a403-c7807b8b59a6" class="link-to-page"><a href="FS%2019358fd8d21180d2ae90e96b73ab30c0/SLIDING%20WINDOW%2019358fd8d21180bba403c7807b8b59a6.html">SLIDING WINDOW</a></figure><figure id="19358fd8-d211-805f-a38c-dae93d86f87a" class="link-to-page"><a href="FS%2019358fd8d21180d2ae90e96b73ab30c0/TREES%2019358fd8d211805fa38cdae93d86f87a.html">TREES</a></figure><figure id="1a058fd8-d211-808e-843d-ddb171067a32" class="link-to-page"><a href="FS%2019358fd8d21180d2ae90e96b73ab30c0/Backtracking%201a058fd8d211808e843dddb171067a32.html">Backtracking</a></figure><figure id="1a058fd8-d211-807e-b3e6-ccdcaecb19e5" class="link-to-page"><a href="FS%2019358fd8d21180d2ae90e96b73ab30c0/Networks%201a058fd8d211807eb3e6ccdcaecb19e5.html">Networks</a></figure><figure id="1a858fd8-d211-80d0-a2a8-ea1b3b5623fa" class="link-to-page"><a href="FS%2019358fd8d21180d2ae90e96b73ab30c0/Queries%201a858fd8d21180d0a2a8ea1b3b5623fa.html">Queries</a></figure><figure id="1a858fd8-d211-80ad-9292-ffce18a98a29" class="link-to-page"><a href="FS%2019358fd8d21180d2ae90e96b73ab30c0/Two%20Pointers%201a858fd8d21180ad9292ffce18a98a29.html">Two Pointers</a></figure><figure id="1ac58fd8-d211-8095-9f40-c3adbdb78905" class="link-to-page"><a href="FS%2019358fd8d21180d2ae90e96b73ab30c0/DISJOIN%20SET%20AND%20&amp;%20UNION%201ac58fd8d21180959f40c3adbdb78905.html">DISJOIN SET AND &amp; UNION</a></figure><figure id="1ad58fd8-d211-80fc-b446-fd3d318d7c52" class="link-to-page"><a href="FS%2019358fd8d21180d2ae90e96b73ab30c0/Bit%20Manipulation%201ad58fd8d21180fcb446fd3d318d7c52.html">Bit Manipulation</a></figure><figure id="1b258fd8-d211-8057-9e9c-ffd612d1be88" class="link-to-page"><a href="FS%2019358fd8d21180d2ae90e96b73ab30c0/Topological%20Sort%201b258fd8d21180579e9cffd612d1be88.html">Topological Sort</a></figure><figure id="1b258fd8-d211-806c-8642-e87fc9fd846d" class="link-to-page"><a href="FS%2019358fd8d21180d2ae90e96b73ab30c0/BST%201b258fd8d211806c8642e87fc9fd846d.html">BST</a></figure><figure id="1b258fd8-d211-80ad-aced-d873c48962d9" class="link-to-page"><a href="FS%2019358fd8d21180d2ae90e96b73ab30c0/AI-ML%201b258fd8d21180adacedd873c48962d9.html">AI-ML</a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style></head><body><article id="1b258fd8-d211-806c-8642-e87fc9fd846d" class="page sans"><header><h1 class="page-title">BST</h1><p class="page-description"></p></header><div class="page-body"><h2 id="1b258fd8-d211-8022-b488-c9f3f1a1186a" class="">Program1</h2><p id="1b258fd8-d211-805a-9368-f9e85774c996" class="">Imagine you&#x27;re the chief curator at a renowned museum that houses a rare collection<br/>of ancient artifacts. These artifacts are arranged in a special display that<br/>follows a strict rule: any artifact positioned to the left of another has a lower<br/>value, and any artifact on the right has a higher value.<br/></p><p id="1b258fd8-d211-80a8-8e0f-e3dcc66744a7" class="">Your task is to transform this display into what is known as a &quot;Greater Artifact<br/>Display.&quot; In this new arrangement, each artifact’s new value will be its original<br/>value plus the sum of the values of all artifacts that are more valuable than it.<br/></p><h2 id="1b258fd8-d211-805c-9d4f-de279447b935" class="">Example 1:</h2><p id="1b258fd8-d211-8093-a8fb-f7f4ce8bd4f9" class="">input=<br/>4 2 6 1 3 5 7<br/>output=<br/>22 27 13 28 25 18 7<br/></p><p id="1b258fd8-d211-8098-9246-fa81342a087e" class="">Explanation:<br/>Input structure<br/>4<br/>/ \<br/>2   6<br/>/ \ / \<br/>1  3 5  7<br/></p><p id="1b258fd8-d211-800e-b15f-fc0ade911f6f" class="">Output structure:<br/>22<br/>/   \<br/>27   13<br/>/ \   / \<br/>28 25 18  7<br/></p><p id="1b258fd8-d211-80c2-b0cf-fcac9bcdb151" class="">Reverse updates:</p><ul id="1b258fd8-d211-80e8-9fcb-cad01f6de320" class="bulleted-list"><li style="list-style-type:disc">Artifact 7: 7</li></ul><ul id="1b258fd8-d211-8038-95fa-f39049ed70f7" class="bulleted-list"><li style="list-style-type:disc">Artifact 6: 6 + 7 = 13</li></ul><ul id="1b258fd8-d211-806a-9e07-d3a720dd5134" class="bulleted-list"><li style="list-style-type:disc">Artifact 5: 5 + 13 = 18</li></ul><ul id="1b258fd8-d211-80ec-9673-dd2549b5246d" class="bulleted-list"><li style="list-style-type:disc">Artifact 4: 4 + 18 = 22</li></ul><ul id="1b258fd8-d211-8039-8f8a-de4e0d851c0e" class="bulleted-list"><li style="list-style-type:disc">Artifact 3: 3 + 22 = 25</li></ul><ul id="1b258fd8-d211-8041-8169-ec85a04aa703" class="bulleted-list"><li style="list-style-type:disc">Artifact 2: 2 + 25 = 27</li></ul><ul id="1b258fd8-d211-800b-8728-c7705f314540" class="bulleted-list"><li style="list-style-type:disc">Artifact 1: 1 + 27 = 28</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1b258fd8-d211-8021-bb12-d0fbe5302e1a" class="code"><code class="language-Java">import java.util.*;
+
+class Tree{
+    int data;
+    Tree left;
+    Tree right;
+    Tree(int data)
+    {
+        this.data=data;
+        this.left=null;
+        this.right=null;
+    }
+}
+
+class Solution{
+    static int temp;
+    static Tree construct(int arr[])
+    {
+        Tree root = new Tree(arr[0]);
+        int ind=0;
+        Queue&lt;Tree&gt;q = new LinkedList&lt;&gt;();
+        q.add(root);
+        while(!q.isEmpty() &amp;&amp; ind&lt;arr.length)
+        {
+            Tree root1 = q.poll();
+            if(ind+1&lt;arr.length)
+            {
+                if(arr[ind+1]!=-1)
+                {
+                    root1.left = new Tree(arr[ind+1]);
+                    q.add(root1.left);
+                }
+            }
+            ind++;
+            if(ind+1&lt;arr.length)
+            {
+                if(arr[ind+1]!=-1)
+                {
+                    root1.right = new Tree(arr[ind+1]);
+                    q.add(root1.right);
+                }
+            }
+            ind++;
+        }
+        return root;
+    }
+    
+    static void modify(Tree root)
+    {
+        if(root==null) return;
+        modify(root.right);
+        temp+=root.data;
+        root.data = temp;
+        modify(root.left);
+        
+    } 
+    
+    static void level(Tree root)
+    {
+        Queue&lt;Tree&gt; q = new LinkedList&lt;&gt;();
+        q.add(root);
+        while(!q.isEmpty())
+        {
+            int s = q.size();
+            for(int i=0;i&lt;s;i++)
+            {
+                Tree node = q.poll();
+                System.out.print(node.data+&quot; &quot;);
+                if(node.left!=null) q.add(node.left);
+                if(node.right!=null) q.add(node.right);
+            }
+        }
+    }
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s[] = sc.nextLine().split(&quot; &quot;);
+        int arr[] = new int[s.length];
+        for(int i=0;i&lt;s.length;i++) arr[i] = Integer.parseInt(s[i]);
+        Tree root = construct(arr);
+        temp=0;
+        modify(root);
+        level(root);
+    }
+}</code></pre></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

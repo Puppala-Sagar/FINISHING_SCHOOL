@@ -880,4 +880,53 @@ class Solution{
         
         solve(arr,t,v);
     }
-}</code></pre></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+}</code></pre><h2 id="1b258fd8-d211-8004-95af-fda07bf8b04c" class="">Program5</h2><p id="1b258fd8-d211-809e-9a8e-f821bf03fc61" class="">&quot;Emphatic Pronunciation&quot; of a given word is where we take the word and<br/>replicate some of the letter to emphasize their impact.<br/></p><p id="1b258fd8-d211-80cd-b051-d8e5949c4efd" class="">Instead of saying &#x27;oh my god&#x27;, someone may say &quot;ohhh myyy goddd&quot;,<br/>We define emphatic pronunciation of a word, which is derived by replicating<br/>a group (or single) of letters in the original word.<br/></p><p id="1b258fd8-d211-8099-9d6a-ec3543dc0e65" class="">So that the replicated group is atleast 3 characters or more and<br/>greater than or equal to size of original group.<br/>For example Good -&gt; Goood is an emphatic pronunciation,<br/>but Goodd is not because in Goodd the &#x27;d&#x27; are only occuring twice consecutively.<br/></p><p id="1b258fd8-d211-8063-aef0-cee16baa31cd" class="">In the question you are given the &quot;Emphatic pronunciation&quot; word,<br/>you have to findout how many words can legal result in the<br/>&quot;emphatic pronunciation&quot; word.<br/></p><h2 id="1b258fd8-d211-8060-b9d1-d21dcffa8a1f" class="">Input Format:</h2><p id="1b258fd8-d211-8078-93b8-d2f58d178165" class="">Line-1 -&gt; A String contains a single word, Emphatic Pronunciation word<br/>Line-2 -&gt; Space seperated word/s<br/></p><h2 id="1b258fd8-d211-8028-8d36-e8989f2692cf" class="">Output Format:</h2><p id="1b258fd8-d211-804e-af27-c46e3c16dcdd" class="">Print an integer as your result</p><h2 id="1b258fd8-d211-80db-8472-f30e37a10fae" class="">Sample Input-1:</h2><p id="1b258fd8-d211-802d-8525-fe3f2f517f19" class="">goood<br/>good goodd<br/></p><h2 id="1b258fd8-d211-804d-845d-f423d39d5db7" class="">Sample Output-1:</h2><p id="1b258fd8-d211-80fd-b6b0-f1630decb8e2" class="">1</p><h2 id="1b258fd8-d211-8061-b791-fcfb091ac133" class="">Sample Input-2:</h2><p id="1b258fd8-d211-80a3-9c98-c2e9aa124067" class="">heeelllooo<br/>hello hi helo<br/></p><h2 id="1b258fd8-d211-80ac-8c90-ed77706c1bfa" class="">Sample Output-2:</h2><p id="1b258fd8-d211-801f-b433-ebe550dae61a" class="">2</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1b258fd8-d211-809f-9b90-dc18cc9c1f99" class="code"><code class="language-Java">import java.util.*;
+
+
+class Solution {
+    
+    static int c = 0;
+    
+    static boolean valid(String em, String x) {
+        int i = 0, j = 0;
+        
+        while (i &lt; em.length() &amp;&amp; j &lt; x.length()) {
+            if (em.charAt(i) != x.charAt(j)) return false;
+            int count1 = 0;
+            char cur1 = em.charAt(i);
+            while (i &lt; em.length() &amp;&amp; em.charAt(i) == cur1) {
+                i++;
+                count1++;
+            }
+
+            int count2 = 0;
+            char cur2 = x.charAt(j);
+            while (j &lt; x.length() &amp;&amp; x.charAt(j) == cur2) {
+                j++;
+                count2++;
+            }
+
+            if ((count1 &lt; 3 &amp;&amp; count1 != count2) || count1 &lt; count2) {
+                return false;
+            }
+        }
+        
+        return i == em.length() &amp;&amp; j == x.length();
+    }
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String em = sc.next();  
+        sc.nextLine();         
+        String[] s = sc.nextLine().split(&quot; &quot;);  
+        
+        for (String word : s) {
+            if (valid(em, word)) c++;
+        }
+        
+        System.out.println(c);
+    }
+}
+
+</code></pre><p id="1b258fd8-d211-801c-9cb2-ce608b775bf5" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
